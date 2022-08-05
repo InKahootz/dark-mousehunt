@@ -6,7 +6,7 @@
 @supportURL   https://github.com/InKahootz/dark-mousehunt/issues
 @updateURL    https://raw.githubusercontent.com/InKahootz/dark-mousehunt/main/dark-mousehunt.user.css
 @author       InKahootz (https://github.com/InKahootz)
-@version      0.1.0
+@version      0.2.0
 @license      MIT
 @preprocessor stylus
 ==/UserStyle== 
@@ -40,6 +40,10 @@
         --bg-dark-pink: #372730;
 
         --bg-transparent-10: rgba(255, 255, 255, .1);
+    }
+    
+    a {
+        color: var(--blue);
     }
 
     /* Large outside columns */
@@ -267,4 +271,56 @@
     
     /* Journal entries */
     
+    /*
+    .journal .entry .journalbody
+    {
+        color: var(--light-gray);
+    }
+    
+    .journal .content .catchsuccessloot {
+        background-color: rgb(75, 75, 0);
+    }
+    */
+    
+    /* Inventory */
+
+    .mousehuntHud-page-tabHeader span {
+        background: var(--dark-gray-2);
+        border-bottom-color: var(--border-1);
+        color: var(--light-gray);
+        box-shadow: 1px 1px 1px var(--dark-gray-2) inset;
+    }
+    
+    .mousehuntHud-page-tabHeader.active span, .mousehuntHud-page-tabHeader:hover span {
+        border-bottom-color: var(--border-1);
+    }
+    
+    .mousehuntHud-page-tabHeader.active span {
+        border-color: var(--dark-gray-2)
+    }
+
+    .inventoryPage-tagDirectory-tag {
+        background: var(--dark-gray-8);
+    }
+    
+    .inventoryPage-tagDirectory-searchBar {
+        color: var(--light-gray);
+    }
+    
+    .inventoryPage-tagDirectory-searchBar > input {
+        background: var(--black);
+        border: var(--border-1);
+        color: var(--light-gray);
+    }
+    
+    .inventoryPage-tagContent-tagTitle {
+        color: var(--light-gray);
+    }
+    .inventoryPage-item.small,
+    .inventoryPage-item-margin {
+        border-color: var(--border-1);
+    }
+    .inventoryPage-item-content-nameContainer {
+        color: var(--light-gray);
+    }
 }
