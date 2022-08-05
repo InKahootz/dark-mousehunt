@@ -6,7 +6,7 @@
 @supportURL   https://github.com/InKahootz/dark-mousehunt/issues
 @updateURL    https://raw.githubusercontent.com/InKahootz/dark-mousehunt/main/dark-mousehunt.user.css
 @author       InKahootz (https://github.com/InKahootz)
-@version      0.4.0
+@version      0.5.0
 @license      MIT
 @preprocessor stylus
 ==/UserStyle== 
@@ -42,7 +42,7 @@
         --bg-dark-pink: #372730;
 
         --bg-transparent-10: rgba(255, 255, 255, .1);
-        
+
         --bg-main: var(--dark-gray-2);
 
         --themed-text: var(--light-gray);
@@ -156,11 +156,11 @@
         --pink-7: #FBCADB;
         --pink-8: #FEECF2;
     }
-    
+
     #overlayBg {
         background: rgba(0, 0, 0, .7) !important;
     }
-    
+
     /*
     #overlayPopup .jsDialog.background {
         background: var(--bg-main);
@@ -170,7 +170,6 @@
         color: var(--light-gray);
     } 
     */
-
     /* Large outside columns */
     .pageFrameView-column.right,
     .pageFrameView-column.left {
@@ -364,25 +363,25 @@
     .campPage-trap-friendContainer-toggleFriendsButton {
         color: #ad6b18;
     }
-    
-    /* Blueprint Drawer */
 
+    /* Blueprint Drawer */
     .campPage-trap-blueprint-closeButton {
         background: var(--bg-main);
         color: var(--light-gray);
         border-color: var(--blue-4);
     }
-    .campPage-trap-itemBrowser-armed, .campPage-trap-itemBrowser-itemContainer {
+    .campPage-trap-itemBrowser-armed,
+    .campPage-trap-itemBrowser-itemContainer {
         background: var(--dark-gray-8);
         color: var(--themed-text);
         border-color: var(--silver-0);
         box-shadow: -1px -1px 2px var(--border-1) inset;
     }
-    
+
     .campPage-trap-itemBrowser-tagGroup-name {
         border-color: var(--silver-0);
     }
-    
+
     .campPage-trap-itemBrowser-tagGroup-empty {
         background: var(--bg-main);
         border-color: var(--silver-0);
@@ -391,54 +390,53 @@
         background: var(--bg-main);
         border-color: var(--border-1);
     }
-    
+
     .campPage-trap-itemBrowser-item {
         background: var(--bg-main);
     }
-    
+
     .campPage-trap-itemBrowser-items {
         color: var(--themed-text);
     }
-    
+
     .campPage-trap-itemBrowser-items .loading,
     .campPage-trap-itemBrowser-items .emptyFilters {
         background: var(--bg-main);
         border-color: var(--border-1);
     }
-    
+
     .campPage-trap-itemBrowser-armed-item {
         background: var(--bg-main);
         border-color: var(--border-1);
     }
-    
+
     .campPage-trap-itemBrowser-armed-label {
         color: var(--themed-text);
     }
-    
+
     .campPage-trap-itemBrowser-armed-item-image-frame {
         border-color: var(--border-1);
         box-shadow: 2px 2px 3px var(--gray-4) inset;
     }
-    
+
     .campPage-trap-itemBrowser-item-statContainer {
         background: var(--bg-main);
         box-shadow: 0 0 1px var(--white), 0 1px 30px var(--bg-main) inset;
     }
-    
+
     .campPage-trap-itemBrowser-favorites {
         background: var(--dark-gray-5);
     }
-    
+
     .campPage-trap-itemBrowser-favorite-item-image-frame {
         box-shadow: 2px 2px 3px var(--bg-main) inset;
     }
-    
+
     .campPage-trap-itemBrowser-item-stat .value span {
         color: var(--themed-text);
     }
 
     /* End Blueprint Drawer */
-
     /* Journal */
     .campPage-tabs-tabContentContainer {
         background: var(--dark-gray-8);
@@ -523,27 +521,27 @@
     .mousehuntHud-page-subTabHeader:hover span {
         background-color: var(--dark-gray-24);
     }
-    
+
     .mousehuntHud-page-subTabHeader.empty span,
     .mousehuntHud-page-subTabHeader.empty:hover span {
         background-color: var(--black);
         box-shadow: 1px 1px 1px var(--silver-0) inset;
     }
-    
+
     .mousehuntHud-page-subTabContent-prefix-title {
         color: var(--light-gray);
         text-shadow: 0 1px 0 var(--black);
     }
-    
+
     .mousehuntHud-page-subTabContent-prefix-filter-option {
         background-color: var(--bg-main);
     }
-    
+
     .mousehuntHud-page-subTabContent-prefix-filter-option.active {
         background-color: var(--blue-1);
         color: var(--light-gray);
     }
-    
+
     .inventoryPage-shieldExpiry {
         background-color: var(--yellow-0);
     }
@@ -575,12 +573,12 @@
     .inventoryPage-item-margin {
         border-color: var(--border-1) !important;
     }
-    
+
     .inventoryPage-item.small .tooltip {
         background: var(--bg-main);
         border-color: var(--border-1);
     }
-    
+
     .inventoryPage-item-larryLexicon {
         background-color: var(--gray-4);
         border-color: var(--gray-8);
@@ -611,58 +609,55 @@
     .itemViewStatBlock-stat.error .itemViewStatBlock-stat-value {
         background-color: var(--red-1)
     }
-    
-    /* Inventory - Crafting */
 
+    /* Inventory - Crafting */
     .mousehuntHud-page-tabContent.crafting .mousehuntHud-page-subTabContent {
         background-color: var(--dark-gray-8);
         border-color: var(--border-1);
         box-shadow: 2px 2px 5px var(--border-1) inset;
     }
-    
+
     .mousehuntHud-page-tabContent.crafting .mousehuntHud-page-subTabContent-margin {
         background-color: var(--bg-main);
         border-color: var(--gray-8);
         box-shadow: 0 0 2px 2px var(--gray-6) inset;
     }
-    
+
     .inventoryPage-item.recipe.disabled {
         background: var(--dark-gray-8);
     }
-    
+
     .inventoryPage-item-content-description-consumedItem.error {
         color: var(--red-6);
     }
-    
+
     .itemImage .quantity {
         background: var(--bg-main);
     }
-    
+
     .mousehuntHud-page-subTabContent.crafting_table .inventoryPage-craftingTable {
         background: var(--bg-main);
         border-color: var(--border-1);
     }
-    
+
     .inventoryPage-craftingTable-title {
         color: var(--light-gray);
     }
-    
+
     .inventoryPage-craftingTable-slot-item.empty .inventoryPage-craftingTable-slot-item-name {
         color: var(--light-gray);
     }
-    
+
     .inventoryPage-craftingTable-slot-item.empty .itemImage {
         box-shadow: 2px 2px 4px var(--black) inset;
     }
-    
+
     .inventoryPage-item-recipeOptions li {
         border-color: var(--border-1);
     }
 
     /* #endregion Inventory */
-
     /* #region Shop */
-
     .itemPurchaseView-container {
         border-color: var(--border-1);
     }
@@ -670,37 +665,84 @@
         background: var(--gray-0);
         border-left-color: var(--border-1);
     }
-    
+
     .itemPurchaseView-action-itemCost-table {
         background: var(--bg-main);
         border-color: var(--border-1) !important;
     }
-    
+
     .itemPurchaseView-action-itemCost-table-cell.owned {
         color: var(--light-gray);
     }
-    
+
     .itemPurchaseView-action-quantity input {
         background: var(--bg-main);
         color: var(--light-gray);
         border-color: var(--border-1) !important;
     }
-    
+
     .shopsPage-compareEquipment {
         background: var(--teal-1);
     }
-    
+
     .itemPurchaseView-container.donation .itemPurchaseView-action-container {
         background-color: var(--yellow-1);
     }
-    
+
     .itemPurchaseView-container.kingsCartItem .itemPurchaseView-content-details:after {
         box-shadow: 0 -5px 10px var(--bg-main) inset;
     }
-    
+
     .itemPurchaseView-container.kingsCartItem .itemPurchaseView-action-container {
         background: var(--blue-0);
         box-shadow: -1px 2px 18px var(--bg-main) inset;
     }
     /* #endregion Shop */
+    /* #region Mice */
+
+.mouseListView-categoryDirectory {
+    border-right-color: var(--blue-5);
+}
+    .mouseListView-categoryContent:before {
+        background: var(--blue-5);    
+    }
+    
+    .mouseListView-categoryContent-category {
+        background: var(--bg-main);
+    }
+
+    .mouseListView-categoryContent-name {
+        color: var(--blue-5);
+    }
+    
+    .mouseListView-categoryContent-filter-option {
+        background: var(--bg-main);
+    }
+    
+    .mouseListView-categoryContent-weaknessesContainer {
+        background: var(--gray-4);
+        border: var(--border-1);
+    }
+    
+    .mouseListView-categoryContent-subgroup-name {
+        background: var(--gray-4);
+    }
+    
+    .mouseListView-categoryContent-subgroup-mouse-margin {
+        box-shadow: 0 0 1px var(--silver-1) inset;
+    }
+    
+    .mouseListView-categoryContent-subgroup-mouse.stats.header {
+        background: var(--gray-4) !important;
+    }
+    
+    .mouseListView-categoryContent-subgroup-mouse.stats:nth-child(odd) {
+        background: var(--dark-gray-8);
+    }
+    
+    .mouseListView-categoryContent-category.all .mouseListView-categoryContent-filter-option.all, .mouseListView-categoryContent-category.caught .mouseListView-categoryContent-filter-option.caught, .mouseListView-categoryContent-category.uncaught .mouseListView-categoryContent-filter-option.uncaught {
+        background: var(--blue-5);
+        color: var(--black);
+    }
+    /* #endregion Mice */
 }
