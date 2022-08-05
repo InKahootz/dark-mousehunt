@@ -1,0 +1,270 @@
+/* ==UserStyle==
+@name         Dark MouseHunt
+@description  Dark theme for the MouseHunt game.
+@namespace    github.com/InKahootz/dark-mousehunt
+@homepageURL  https://github.com/InKahootz/dark-mousehunt
+@supportURL   https://github.com/InKahootz/dark-mousehunt/issues
+@updateURL    https://raw.githubusercontent.com/InKahootz/dark-mousehunt/main/dark-mousehunt.user.css
+@author       InKahootz (https://github.com/InKahootz)
+@version      0.1.0
+@license      MIT
+@preprocessor stylus
+==/UserStyle== 
+*/
+@-moz-document domain("mousehuntgame.com") {
+    :root {
+        --red: #d93025;
+        --green: #22c659;
+        --white: #ffffff;
+        --blue: #8ab4f8;
+        --black: #121212;
+        --dark-gray-1: #1e1e1e;
+        --dark-gray-2: #232323;
+        --dark-gray-3: #252525;
+        --dark-gray-4: #272727;
+        --dark-gray-6: #2c2c2c;
+        --dark-gray-8: #2e2e2e;
+        --dark-gray-12: #333333;
+        --dark-gray-16: #363636;
+        --dark-gray-24: #383838;
+        --light-gray: #e0e0e0;
+
+        --border-1: #4a4b4f;
+
+        --bg-dark-yellow: #3e3c37;
+        --bg-dark-yellow-2: #332f22;
+        --bg-dark-green: #262f28;
+        --bg-dark-red: #312321;
+        --bg-dark-orange: #31211d;
+        --bg-dark-purple: #392b46;
+        --bg-dark-pink: #372730;
+
+        --bg-transparent-10: rgba(255, 255, 255, .1);
+    }
+
+    /* Large outside columns */
+    .pageFrameView-column.right,
+    .pageFrameView-column.left {
+        background: var(--black);
+        border-color: var(--dark-gray-2)
+    }
+
+    .pageFrameView-content,
+    .pageFrameView-contentContainer {
+        background: var(--dark-gray-2);
+    }
+
+    /* Sidebar */
+    .pageSidebarView {
+        background: var(--dark-gray-2);
+    }
+
+    .pageSidebarView-block {
+        background: var(--dark-gray-2);
+        color: var(--light-gray);
+    }
+
+    .pageSidebarView-block a {
+        color: var(--blue);
+    }
+
+    .pageSidebarView .fb-page {
+        background: transparent;
+    }
+
+    .pageSidebarView-user {
+        border: none;
+        color: var(--light-gray);
+    }
+
+    .pageSidebarView-user a {
+        color: var(--blue)
+    }
+
+    /* Sidebar Scoreboard */
+    .scoreboardRelativeRankingTableView-table {
+        border: 2px solid var(--border-1);
+    }
+
+    .scoreboardRelativeRankingTableView-table tr.highlight {
+        background: var(--bg-transparent-10);
+    }
+
+    /* Header */
+    .mousehuntHeaderView {
+        background: var(--dark-gray-2);
+        border-color: var(--border-1);
+    }
+
+    /* header with new notification */
+    .mousehuntHeaderView a.new {
+        background: linear-gradient(#007000, #003000) !important;
+    }
+
+    .mousehuntHeaderView-gameTabs {
+        background: var(--dark-gray-8);
+        border-color: var(--border-1);
+    }
+
+    .mousehuntHeaderView .menuItem {
+        background: var(--dark-gray-8);
+        color: var(--light-gray);
+        border-color: var(--border-1);
+    }
+
+    .mousehuntHeaderView-newsTicker {
+        background: var(--dark-gray-8);
+        color: var(--light-gray);
+        border-color: var(--border-1)
+    }
+
+    .mousehuntHeaderView-newsTicker .label {
+        color: var(--blue);
+    }
+
+    .mousehuntHeaderView-newsTicker a {
+        color: var(--blue);
+    }
+
+    /* Hud */
+    .mousehuntHud-gameInfo {
+        background: var(--dark-gray-8);
+        color: var(--light-gray);
+    }
+
+    .mousehuntHud-gameInfo a {
+        color: var(--blue);
+    }
+
+    /*
+    .mousehuntHud-top.hornReady {
+        background-image: none !important;
+    }
+    
+    #mousehuntContainer.PageCamp {
+        background: none;
+        background-color: var(--dark-gray-16);
+    }
+    */
+    /* Trap */
+    
+    .campPage-trap {
+        background: var(--dark-gray-8);
+        box-shadow: -1px -1px 1px var(--border-1) inset;
+    }
+
+    .campPage-trap-armedItem.bait {
+        background: var(--dark-gray-8);
+        border-color: var(--border-1);
+        box-shadow: -1px -1px 1px var(--border-1) inset;
+    }
+    
+    .campPage-trap-baitLabel,
+    .campPage-trap-baitDetails,
+    .campPage-trap-armedItem-skin-description {
+        color: #ad6b18;
+        text-shadow: none;
+    }
+    
+    .campPage-trap .trapImageView {
+        background: var(--dark-gray-8);
+        border-color: var(--border-1);
+    }
+    
+    .campPage-trap-armedItem-empty {
+        background: var(--dark-gray-8);
+        color: #ad6b18;
+        box-shadow: none;
+    }
+    
+    .campPage-trap-armedItem {
+        border-color: var(--border-1);
+        box-shadow: none;
+    }
+    
+    .campPage-trap-armedItem .quantity span {
+        background-color: var(--dark-gray-8);
+        color: #ad6b18;
+        box-shadow: none;
+    }
+    
+    .campPage-trap-armedItem-image {
+        border-color: var(--border-1);
+    }
+    
+    .campPage-trap-armedItem.skin {
+        background: var(--dark-gray-8);
+        border-color: var(--border-1);
+        box-shadow: -1px -1px 1px var(--border-1) inset;
+    }
+    
+    .campPage-trap-armedItem-skin-description-content b {
+        color: var(--light-gray);
+    }
+    
+    .campPage-trap-statsContainer {
+        background: var(--dark-gray-1);
+        box-shadow: 0 0 10px var(--dark-gray-4) inset;
+    }
+    
+    .campPage-trap-itemStats {
+        background: var(--dark-gray-8);
+        color: #ad6b18;
+        border-color: var(--border-1);
+        box-shadow: -1px -1px 2px var(--dark-gray-16) inset;
+    }
+    
+    .campPage-trap-trapStat .value {
+        background: var(--dark-gray-8);
+        border-color: var(--border-1);
+        color: #ad6b18
+    }
+    
+    .campPage-trap-trapEffectiveness {
+        background: var(--dark-gray-8);
+        border-color: var(--border-1);
+        box-shadow: none;
+        color: #ad6b18;
+    }
+    
+    .campPage-trap-friendContainer .label,
+    .campPage-trap-friendContainer-toggleFriendsButton {
+        color: #ad6b18;
+    }
+
+    /* Journal */
+    
+    .campPage-tabs-tabContentContainer {
+        background: var(--dark-gray-8);
+        border-color: var(--border-1);
+        box-shadow: 0 0 2px 2px var(--border-1);
+    }
+
+    .campPage-tabs-tabHeader span {
+        color: var(--light-gray);
+        background: var(--dark-gray-8);
+        border-color: var(--border-1);
+        box-shadow: -1px -1px 1px var(--border-1);
+    }
+
+    .campPage-tabs-tabRow:hover .campPage-tabs-tabHeader span {
+        border-bottom-color: var(--border-1);
+    }
+
+    .campPage-tabs-tabHeader.active span,
+    .campPage-tabs-tabRow .campPage-tabs-tabHeader:hover span {
+        border-bottom-color: var(--dark-gray-8);
+    }
+
+    .campPage-tabs-tabContent[data-tab=journal] {
+        background: var(--dark-gray-8);
+    }
+    
+    .adventureBookBanner-adventureName {
+        background: var(--dark-gray-8);
+        color: var(--light-gray);
+    }
+    
+    /* Journal entries */
+    
+}
