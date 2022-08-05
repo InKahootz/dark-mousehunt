@@ -29,6 +29,8 @@
         --dark-gray-24: #383838;
         --light-gray: #e0e0e0;
 
+        --gray-1: #4a4b4f;
+
         --border-1: #4a4b4f;
 
         --bg-dark-yellow: #3e3c37;
@@ -40,10 +42,117 @@
         --bg-dark-pink: #372730;
 
         --bg-transparent-10: rgba(255, 255, 255, .1);
-    }
-    
-    a {
-        color: var(--blue);
+
+        --themed-text: var(--light-gray);
+
+        --gray-0: #232325;
+        --gray-1: #2D2F32;
+        --gray-2: #373A3E;
+        --gray-3: #42454A;
+        --gray-4: #4C4F56;
+        --gray-5: #575A61;
+        --gray-6: #61646B;
+        --gray-7: #6B6F76;
+        --gray-8: #76797F;
+
+        --silver-0: #808389;
+        --silver-1: #96999F;
+        --silver-2: #ACAFB3;
+        --silver-3: #C1C2C6;
+        --silver-4: #D3D4D7;
+        --silver-5: #E3E4E6;
+        --silver-6: #EFF0F1;
+        --silver-7: #F9F9F9;
+        --silver-8: #FFFFFF;
+
+        --red-0: #5A0603;
+        --red-1: #7C0B08;
+        --red-2: #9A100C;
+        --red-3: #B01814;
+        --red-4: #C9211B;
+        --red-5: #E2342E;
+        --red-6: #EB7571;
+        --red-7: #F5B6B4;
+        --red-8: #FBE5E4;
+
+        --orange-0: #622A09;
+        --orange-1: #873D10;
+        --orange-2: #A84D16;
+        --orange-3: #C15F1E;
+        --orange-4: #DD7828;
+        --orange-5: #F6983E;
+        --orange-6: #F9B97C;
+        --orange-7: #FCDABA;
+        --orange-8: #FEF2E6;
+
+        --yellow-0: #67410E;
+        --yellow-1: #8F5D15;
+        --yellow-2: #B2761D;
+        --yellow-3: #CF8E25;
+        --yellow-4: #EECC2E;
+        --yellow-5: #FFEC4B;
+        --yellow-6: #FFF498;
+        --yellow-7: #FFF9C8;
+        --yellow-8: #FFFDEB;
+
+        --green-0: #0E4420;
+        --green-1: #155E2F;
+        --green-2: #1D743B;
+        --green-3: #248548;
+        --green-4: #2D9855;
+        --green-5: #3BAB6A;
+        --green-6: #7AC69A;
+        --green-7: #B8E1C9;
+        --green-8: #E6F4EC;
+
+        --teal-0: #0C4739;
+        --teal-1: #136150;
+        --teal-2: #187865;
+        --teal-3: #208A79;
+        --teal-4: #289E8E;
+        --teal-5: #38B1AB;
+        --teal-6: #78CAC6;
+        --teal-7: #B7E4E2;
+        --teal-8: #E5F5F4;
+
+        --blue-0: #00325E;
+        --blue-1: #004681;
+        --blue-2: #005AA0;
+        --blue-3: #006CB7;
+        --blue-4: #007FD1;
+        --blue-5: #0A9FEB;
+        --blue-6: #58BEF1;
+        --blue-7: #A5DEFD;
+        --blue-8: #DFF3FC;
+
+        --indigo-0: #202652;
+        --indigo-1: #2E3671;
+        --indigo-2: #3A448C;
+        --indigo-3: #4651A1;
+        --indigo-4: #535FB7;
+        --indigo-5: #6675CE;
+        --indigo-6: #97A1DE;
+        --indigo-7: #CBD1F7;
+        --indigo-8: #EBEDF9;
+
+        --purple-0: #36285D;
+        --purple-1: #4C3980;
+        --purple-2: #60479E;
+        --purple-3: #7155B6;
+        --purple-4: #8565CF;
+        --purple-5: #9F7AE9;
+        --purple-6: #BEA5F0;
+        --purple-7: #E0D1FF;
+
+        --pink-0: #622031;
+        --pink-1: #872E47;
+        --pink-2: #A73B5A;
+        --pink-3: #BF486C;
+        --pink-4: #DA567E;
+        --pink-5: #F56D9A;
+        --pink-6: #F89CBA;
+        --pink-7: #FBCADB;
+        --pink-8: #FEECF2;
     }
 
     /* Large outside columns */
@@ -105,6 +214,11 @@
         background: linear-gradient(#007000, #003000) !important;
     }
 
+    .mousehuntHeaderView-menu-notification {
+        background: rgb(233, 00, 00);
+        box-shadow: 1px 1px 1px var(--dark-gray-4);
+    }
+
     .mousehuntHeaderView-gameTabs {
         background: var(--dark-gray-8);
         border-color: var(--border-1);
@@ -151,7 +265,6 @@
     }
     */
     /* Trap */
-    
     .campPage-trap {
         background: var(--dark-gray-8);
         box-shadow: -1px -1px 1px var(--border-1) inset;
@@ -162,82 +275,81 @@
         border-color: var(--border-1);
         box-shadow: -1px -1px 1px var(--border-1) inset;
     }
-    
+
     .campPage-trap-baitLabel,
     .campPage-trap-baitDetails,
     .campPage-trap-armedItem-skin-description {
         color: #ad6b18;
         text-shadow: none;
     }
-    
+
     .campPage-trap .trapImageView {
         background: var(--dark-gray-8);
         border-color: var(--border-1);
     }
-    
+
     .campPage-trap-armedItem-empty {
         background: var(--dark-gray-8);
         color: #ad6b18;
         box-shadow: none;
     }
-    
+
     .campPage-trap-armedItem {
         border-color: var(--border-1);
         box-shadow: none;
     }
-    
+
     .campPage-trap-armedItem .quantity span {
         background-color: var(--dark-gray-8);
         color: #ad6b18;
         box-shadow: none;
     }
-    
+
     .campPage-trap-armedItem-image {
         border-color: var(--border-1);
     }
-    
+
     .campPage-trap-armedItem.skin {
         background: var(--dark-gray-8);
         border-color: var(--border-1);
         box-shadow: -1px -1px 1px var(--border-1) inset;
     }
-    
+
     .campPage-trap-armedItem-skin-description-content b {
         color: var(--light-gray);
     }
-    
+
     .campPage-trap-statsContainer {
         background: var(--dark-gray-1);
         box-shadow: 0 0 10px var(--dark-gray-4) inset;
     }
-    
+
     .campPage-trap-itemStats {
         background: var(--dark-gray-8);
         color: #ad6b18;
         border-color: var(--border-1);
         box-shadow: -1px -1px 2px var(--dark-gray-16) inset;
     }
-    
+
     .campPage-trap-trapStat .value {
         background: var(--dark-gray-8);
         border-color: var(--border-1);
         color: #ad6b18
     }
-    
+
     .campPage-trap-trapEffectiveness {
         background: var(--dark-gray-8);
         border-color: var(--border-1);
         box-shadow: none;
         color: #ad6b18;
     }
-    
+
     .campPage-trap-friendContainer .label,
     .campPage-trap-friendContainer-toggleFriendsButton {
         color: #ad6b18;
     }
 
     /* Journal */
-    
     .campPage-tabs-tabContentContainer {
         background: var(--dark-gray-8);
         border-color: var(--border-1);
@@ -263,14 +375,13 @@
     .campPage-tabs-tabContent[data-tab=journal] {
         background: var(--dark-gray-8);
     }
-    
+
     .adventureBookBanner-adventureName {
         background: var(--dark-gray-8);
         color: var(--light-gray);
     }
-    
+
     /* Journal entries */
-    
     /*
     .journal .entry .journalbody
     {
@@ -281,46 +392,108 @@
         background-color: rgb(75, 75, 0);
     }
     */
-    
-    /* Inventory */
-
+    /* #region Inventory */
     .mousehuntHud-page-tabHeader span {
         background: var(--dark-gray-2);
         border-bottom-color: var(--border-1);
         color: var(--light-gray);
         box-shadow: 1px 1px 1px var(--dark-gray-2) inset;
     }
-    
-    .mousehuntHud-page-tabHeader.active span, .mousehuntHud-page-tabHeader:hover span {
+
+    .mousehuntHud-page-tabHeader.active span,
+    .mousehuntHud-page-tabHeader:hover span {
         border-bottom-color: var(--border-1);
     }
-    
+
     .mousehuntHud-page-tabHeader.active span {
         border-color: var(--dark-gray-2)
+    }
+
+    .mousehuntHud-page-subTabContent a {
+        color: var(--blue);
+    }
+
+    .mousehuntHud-page-subTabContent,
+    .mousehuntHud-page-subTabHeader-container {
+        color: var(--light-gray);
+    }
+
+    .mousehuntHud-page-subTabHeader span {
+        background-color: var(--dark-gray-4);
+        color: var(--themed-text);
+        border-color: var(--border-1);
+        box-shadow: 1px 1px 1px var(--gray-1) inset;
+    }
+
+    .mousehuntHud-page-subTabHeader-container .mousehuntHud-page-subTabHeader:last-child span {
+        border-right-color: var(--border-1);
+    }
+
+    .mousehuntHud-page-subTabHeader.active span,
+    .mousehuntHud-page-subTabHeader:hover span {
+        background-color: var(--dark-gray-24);
+    }
+    
+    .inventoryPage-shieldExpiry {
+        background-color: var(--yellow-0);
     }
 
     .inventoryPage-tagDirectory-tag {
         background: var(--dark-gray-8);
     }
-    
+
     .inventoryPage-tagDirectory-searchBar {
         color: var(--light-gray);
     }
-    
+
     .inventoryPage-tagDirectory-searchBar > input {
         background: var(--black);
         border: var(--border-1);
         color: var(--light-gray);
     }
-    
+
     .inventoryPage-tagContent-tagTitle {
         color: var(--light-gray);
+    }
+
+    .inventoryPage-item-name {
+        background-color: var(--dark-gray-8);
     }
     .inventoryPage-item.small,
     .inventoryPage-item-margin {
         border-color: var(--border-1);
     }
+    
+    .inventoryPage-item-larryLexicon {
+        background-color: var(--gray-4);
+        border-color: var(--gray-8);
+    }
+
     .inventoryPage-item-content-nameContainer {
         color: var(--light-gray);
     }
+
+    /* Inventory - Traps Tab */
+    .inventoryPage-item.component .inventoryPage-item-imageContainer .itemImage {
+        border-color: var(--dark-gray-24);
+    }
+
+    .itemViewStatBlock-stat-label {
+        background-color: var(--dark-gray-6);
+    }
+
+    .itemViewStatBlock-stat-helper {
+        background-color: var(--dark-gray-1);
+        color: var(--light-gray);
+    }
+
+    .itemViewStatBlock-stat-value {
+        background-color: var(--dark-gray-2);
+    }
+
+    .itemViewStatBlock-stat.error .itemViewStatBlock-stat-value {
+        background-color: var(--red-1)
+    }
+
+    /* #endregion Inventory */
 }
