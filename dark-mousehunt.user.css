@@ -6,7 +6,7 @@
 @supportURL   https://github.com/InKahootz/dark-mousehunt/issues
 @updateURL    https://raw.githubusercontent.com/InKahootz/dark-mousehunt/main/dark-mousehunt.user.css
 @author       InKahootz (https://github.com/InKahootz)
-@version      0.2.0
+@version      0.3.0
 @license      MIT
 @preprocessor stylus
 ==/UserStyle== 
@@ -42,18 +42,20 @@
         --bg-dark-pink: #372730;
 
         --bg-transparent-10: rgba(255, 255, 255, .1);
+        
+        --bg-main: var(--dark-gray-2);
 
         --themed-text: var(--light-gray);
 
-        --gray-0: #232325;
-        --gray-1: #2D2F32;
-        --gray-2: #373A3E;
-        --gray-3: #42454A;
-        --gray-4: #4C4F56;
-        --gray-5: #575A61;
-        --gray-6: #61646B;
-        --gray-7: #6B6F76;
-        --gray-8: #76797F;
+        --gray-0: #1E1E1F;
+        --gray-1: #262628;
+        --gray-2: #282F31;
+        --gray-3: #363739;
+        --gray-4: #3E3F42;
+        --gray-5: #46474B;
+        --gray-6: #4E4F53;
+        --gray-7: #56575B;
+        --gray-8: #5E5F63;
 
         --silver-0: #808389;
         --silver-1: #96999F;
@@ -154,26 +156,30 @@
         --pink-7: #FBCADB;
         --pink-8: #FEECF2;
     }
+    
+    #overlayBg {
+        background: rgba(0, 0, 0, .7) !important;
+    }
 
     /* Large outside columns */
     .pageFrameView-column.right,
     .pageFrameView-column.left {
         background: var(--black);
-        border-color: var(--dark-gray-2)
+        border-color: var(--bg-main)
     }
 
     .pageFrameView-content,
     .pageFrameView-contentContainer {
-        background: var(--dark-gray-2);
+        background: var(--bg-main);
     }
 
     /* Sidebar */
     .pageSidebarView {
-        background: var(--dark-gray-2);
+        background: var(--bg-main);
     }
 
     .pageSidebarView-block {
-        background: var(--dark-gray-2);
+        background: var(--bg-main);
         color: var(--light-gray);
     }
 
@@ -205,7 +211,7 @@
 
     /* Header */
     .mousehuntHeaderView {
-        background: var(--dark-gray-2);
+        background: var(--bg-main);
         border-color: var(--border-1);
     }
 
@@ -348,6 +354,80 @@
     .campPage-trap-friendContainer-toggleFriendsButton {
         color: #ad6b18;
     }
+    
+    /* Blueprint Drawer */
+
+    .campPage-trap-blueprint-closeButton {
+        background: var(--bg-main);
+        color: var(--light-gray);
+        border-color: var(--blue-4);
+    }
+    .campPage-trap-itemBrowser-armed, .campPage-trap-itemBrowser-itemContainer {
+        background: var(--dark-gray-8);
+        color: var(--themed-text);
+        border-color: var(--silver-0);
+        box-shadow: -1px -1px 2px var(--border-1) inset;
+    }
+    
+    .campPage-trap-itemBrowser-tagGroup-name {
+        border-color: var(--silver-0);
+    }
+    
+    .campPage-trap-itemBrowser-tagGroup-empty {
+        background: var(--bg-main);
+        border-color: var(--silver-0);
+    }
+    .campPage-trap-itemBrowser-armed-item {
+        background: var(--bg-main);
+        border-color: var(--border-1);
+    }
+    
+    .campPage-trap-itemBrowser-item {
+        background: var(--bg-main);
+    }
+    
+    .campPage-trap-itemBrowser-items {
+        color: var(--themed-text);
+    }
+    
+    .campPage-trap-itemBrowser-items .loading,
+    .campPage-trap-itemBrowser-items .emptyFilters {
+        background: var(--bg-main);
+        border-color: var(--border-1);
+    }
+    
+    .campPage-trap-itemBrowser-armed-item {
+        background: var(--bg-main);
+        border-color: var(--border-1);
+    }
+    
+    .campPage-trap-itemBrowser-armed-label {
+        color: var(--themed-text);
+    }
+    
+    .campPage-trap-itemBrowser-armed-item-image-frame {
+        border-color: var(--border-1);
+        box-shadow: 2px 2px 3px var(--gray-4) inset;
+    }
+    
+    .campPage-trap-itemBrowser-item-statContainer {
+        background: var(--bg-main);
+        box-shadow: 0 0 1px var(--white), 0 1px 30px var(--bg-main) inset;
+    }
+    
+    .campPage-trap-itemBrowser-favorites {
+        background: var(--dark-gray-5);
+    }
+    
+    .campPage-trap-itemBrowser-favorite-item-image-frame {
+        box-shadow: 2px 2px 3px var(--bg-main) inset;
+    }
+    
+    .campPage-trap-itemBrowser-item-stat .value span {
+        color: var(--themed-text);
+    }
+
+    /* End Blueprint Drawer */
 
     /* Journal */
     .campPage-tabs-tabContentContainer {
@@ -434,6 +514,20 @@
         background-color: var(--dark-gray-24);
     }
     
+    .mousehuntHud-page-subTabContent-prefix-title {
+        color: var(--light-gray);
+        text-shadow: 0 1px 0 var(--black);
+    }
+    
+    .mousehuntHud-page-subTabContent-prefix-filter-option {
+        background-color: var(--bg-main);
+    }
+    
+    .mousehuntHud-page-subTabContent-prefix-filter-option.active {
+        background-color: var(--blue-1);
+        color: var(--light-gray);
+    }
+    
     .inventoryPage-shieldExpiry {
         background-color: var(--yellow-0);
     }
@@ -461,6 +555,11 @@
     }
     .inventoryPage-item.small,
     .inventoryPage-item-margin {
+        border-color: var(--border-1) !important;
+    }
+    
+    .inventoryPage-item.small .tooltip {
+        background: var(--bg-main);
         border-color: var(--border-1);
     }
     
@@ -493,6 +592,49 @@
 
     .itemViewStatBlock-stat.error .itemViewStatBlock-stat-value {
         background-color: var(--red-1)
+    }
+    
+    /* Inventory - Crafting */
+
+    .mousehuntHud-page-tabContent.crafting .mousehuntHud-page-subTabContent {
+        background-color: var(--dark-gray-8);
+        border-color: var(--border-1);
+        box-shadow: 2px 2px 5px var(--border-1) inset;
+    }
+    
+    .mousehuntHud-page-tabContent.crafting .mousehuntHud-page-subTabContent-margin {
+        background-color: var(--bg-main);
+        border-color: var(--gray-8);
+        box-shadow: 0 0 2px 2px var(--gray-6) inset;
+    }
+    
+    .inventoryPage-item.recipe.disabled {
+        background: var(--dark-gray-8);
+    }
+    
+    .inventoryPage-item-content-description-consumedItem.error {
+        color: var(--red-6);
+    }
+    
+    .itemImage .quantity {
+        background: var(--bg-main);
+    }
+    
+    .mousehuntHud-page-subTabContent.crafting_table .inventoryPage-craftingTable {
+        background: var(--bg-main);
+        border-color: var(--border-1);
+    }
+    
+    .inventoryPage-craftingTable-title {
+        color: var(--light-gray);
+    }
+    
+    .inventoryPage-craftingTable-slot-item.empty .inventoryPage-craftingTable-slot-item-name {
+        color: var(--light-gray);
+    }
+    
+    .inventoryPage-craftingTable-slot-item.empty .itemImage {
+        box-shadow: 2px 2px 4px var(--black) inset;
     }
 
     /* #endregion Inventory */
