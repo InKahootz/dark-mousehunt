@@ -6,7 +6,7 @@
 @supportURL   https://github.com/InKahootz/dark-mousehunt/issues
 @updateURL    https://raw.githubusercontent.com/InKahootz/dark-mousehunt/main/dark-mousehunt.user.css
 @author       InKahootz (https://github.com/InKahootz)
-@version      0.3.0
+@version      0.4.0
 @license      MIT
 @preprocessor stylus
 ==/UserStyle== 
@@ -160,6 +160,16 @@
     #overlayBg {
         background: rgba(0, 0, 0, .7) !important;
     }
+    
+    /*
+    #overlayPopup .jsDialog.background {
+        background: var(--bg-main);
+    }
+    
+    #overlayPopup h2 {
+        color: var(--light-gray);
+    } 
+    */
 
     /* Large outside columns */
     .pageFrameView-column.right,
@@ -514,6 +524,12 @@
         background-color: var(--dark-gray-24);
     }
     
+    .mousehuntHud-page-subTabHeader.empty span,
+    .mousehuntHud-page-subTabHeader.empty:hover span {
+        background-color: var(--black);
+        box-shadow: 1px 1px 1px var(--silver-0) inset;
+    }
+    
     .mousehuntHud-page-subTabContent-prefix-title {
         color: var(--light-gray);
         text-shadow: 0 1px 0 var(--black);
@@ -548,10 +564,12 @@
 
     .inventoryPage-tagContent-tagTitle {
         color: var(--light-gray);
+        border-bottom-color: var(--silver-1);
     }
 
     .inventoryPage-item-name {
         background-color: var(--dark-gray-8);
+        border-bottom-color: var(--silver-1);
     }
     .inventoryPage-item.small,
     .inventoryPage-item-margin {
@@ -636,6 +654,53 @@
     .inventoryPage-craftingTable-slot-item.empty .itemImage {
         box-shadow: 2px 2px 4px var(--black) inset;
     }
+    
+    .inventoryPage-item-recipeOptions li {
+        border-color: var(--border-1);
+    }
 
     /* #endregion Inventory */
+
+    /* #region Shop */
+
+    .itemPurchaseView-container {
+        border-color: var(--border-1);
+    }
+    .itemPurchaseView-action-container {
+        background: var(--gray-0);
+        border-left-color: var(--border-1);
+    }
+    
+    .itemPurchaseView-action-itemCost-table {
+        background: var(--bg-main);
+        border-color: var(--border-1) !important;
+    }
+    
+    .itemPurchaseView-action-itemCost-table-cell.owned {
+        color: var(--light-gray);
+    }
+    
+    .itemPurchaseView-action-quantity input {
+        background: var(--bg-main);
+        color: var(--light-gray);
+        border-color: var(--border-1) !important;
+    }
+    
+    .shopsPage-compareEquipment {
+        background: var(--teal-1);
+    }
+    
+    .itemPurchaseView-container.donation .itemPurchaseView-action-container {
+        background-color: var(--yellow-1);
+    }
+    
+    .itemPurchaseView-container.kingsCartItem .itemPurchaseView-content-details:after {
+        box-shadow: 0 -5px 10px var(--bg-main) inset;
+    }
+    
+    .itemPurchaseView-container.kingsCartItem .itemPurchaseView-action-container {
+        background: var(--blue-0);
+        box-shadow: -1px 2px 18px var(--bg-main) inset;
+    }
+    /* #endregion Shop */
 }
