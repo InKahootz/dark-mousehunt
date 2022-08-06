@@ -6,7 +6,7 @@
 @supportURL   https://github.com/InKahootz/dark-mousehunt/issues
 @updateURL    https://raw.githubusercontent.com/InKahootz/dark-mousehunt/main/dark-mousehunt.user.css
 @author       InKahootz (https://github.com/InKahootz)
-@version      0.6.1
+@version      0.6.2
 @license      MIT
 @preprocessor stylus
 ==/UserStyle== 
@@ -985,8 +985,18 @@
     .marketplaceView-header-tabHeader.active {
         background: var(--bg-main);
     }
+    
     .marketplaceView .marketplaceContentContainer {
         background: var(--bg-main);
+    }
+    
+    .marketplaceHome-blockMenu.active, .marketplaceHome-blockMenu:hover {
+        color: var(--white);
+    }
+    
+    .marketplaceHome-blockMenu {
+        color: var(--silver-0);
+        border-bottom-color: var(--bg-main);
     }
 
     .marketplaceHome-blockItem,
@@ -998,6 +1008,11 @@
         color: var(--light-gray);
     }
     
+    .marketplaceHome-block-viewAll:hover {
+        background-color: var(--black);
+        color: var(--light-gray);
+    }
+    
     .marketplaceView {
         color: var(--light-gray);
     }
@@ -1005,6 +1020,10 @@
     .marketplaceView h1 {
         color: var(--light-gray);
         border-bottom-color: var(--light-gray);
+    }
+    
+    .marketplaceView-table tr.empty {
+        background: var(--bg-main) !important;
     }
     
     .marketplaceView-table tr:nth-child(odd) {
@@ -1053,6 +1072,16 @@
     
     .marketplaceView .mousehuntCharacterGuideBox-content {
         background-color: var(--gray-3);
+    }
+    
+    .marketplaceView-moreLink {
+        border-color: var(--border-1);
+        color: var(--light-gray);
+    }
+    
+    .marketplaceView-moreLink:hover {
+        background-color: var(--dark-gray-2);
+        color: var(--light-gray);
     }
 
     /* #endregion Marketplace */
