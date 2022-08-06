@@ -6,7 +6,7 @@
 @supportURL   https://github.com/InKahootz/dark-mousehunt/issues
 @updateURL    https://raw.githubusercontent.com/InKahootz/dark-mousehunt/main/dark-mousehunt.user.css
 @author       InKahootz (https://github.com/InKahootz)
-@version      0.5.0
+@version      0.6.0
 @license      MIT
 @preprocessor stylus
 ==/UserStyle== 
@@ -497,6 +497,11 @@
         border-color: var(--dark-gray-2)
     }
 
+    .mousehuntHud-page-tabContent-loading,
+    .mousehuntHud-page-subTabContent-loading {
+        background: url(https://www.mousehuntgame.com/images/ui/loaders/mouse_loading_large.gif?asset_cache_version=2) 50% 50% no-repeat, var(--gray-0);
+    }
+
     .mousehuntHud-page-subTabContent a {
         color: var(--blue);
     }
@@ -631,7 +636,7 @@
         color: var(--red-6);
     }
 
-    .itemImage .quantity {
+    .mousehuntHud-page-tabContent .itemImage .quantity {
         background: var(--bg-main);
     }
 
@@ -699,14 +704,13 @@
     }
     /* #endregion Shop */
     /* #region Mice */
-
-.mouseListView-categoryDirectory {
-    border-right-color: var(--blue-5);
-}
-    .mouseListView-categoryContent:before {
-        background: var(--blue-5);    
+    .mouseListView-categoryDirectory {
+        border-right-color: var(--blue-5);
     }
-    
+    .mouseListView-categoryContent:before {
+        background: var(--blue-5);
+    }
+
     .mouseListView-categoryContent-category {
         background: var(--bg-main);
     }
@@ -714,35 +718,338 @@
     .mouseListView-categoryContent-name {
         color: var(--blue-5);
     }
-    
+
     .mouseListView-categoryContent-filter-option {
         background: var(--bg-main);
     }
-    
+
     .mouseListView-categoryContent-weaknessesContainer {
         background: var(--gray-4);
         border: var(--border-1);
     }
-    
+
     .mouseListView-categoryContent-subgroup-name {
         background: var(--gray-4);
     }
-    
+
     .mouseListView-categoryContent-subgroup-mouse-margin {
         box-shadow: 0 0 1px var(--silver-1) inset;
     }
-    
+
     .mouseListView-categoryContent-subgroup-mouse.stats.header {
         background: var(--gray-4) !important;
     }
-    
+
     .mouseListView-categoryContent-subgroup-mouse.stats:nth-child(odd) {
         background: var(--dark-gray-8);
     }
-    
-    .mouseListView-categoryContent-category.all .mouseListView-categoryContent-filter-option.all, .mouseListView-categoryContent-category.caught .mouseListView-categoryContent-filter-option.caught, .mouseListView-categoryContent-category.uncaught .mouseListView-categoryContent-filter-option.uncaught {
+
+    .mouseListView-categoryContent-category.all .mouseListView-categoryContent-filter-option.all,
+    .mouseListView-categoryContent-category.caught .mouseListView-categoryContent-filter-option.caught,
+    .mouseListView-categoryContent-category.uncaught .mouseListView-categoryContent-filter-option.uncaught {
         background: var(--blue-5);
         color: var(--black);
     }
     /* #endregion Mice */
+    /* #region Friends */
+    .friendsPage-friendRow {
+        border-color: var(--silver-1);
+        color: var(--themed-text);
+        background: linear-gradient(var(--gray-3) 5%, var(--gray-1) 50%);
+    }
+
+    .friendsPage-friendRow a {
+        color: var(--blue-1);
+    }
+
+
+    .friendsPage-friendRow-statsContainer {
+        box-shadow: 0 10px 30px var(--gray-5) inset;
+    }
+
+    .friendsPage-friendRow-stat span,
+    .friendsPage-friendRow-stat a {
+        color: var(--white);
+    }
+
+    .friendsPage-subduedLink {
+        background-color: var(--gray-3);
+    }
+
+    .pagerView-container {
+        background-color: var(--gray-4);
+    }
+
+    .pagerView-section.previous .pagerView-link,
+    .pagerView-section.next .pagerView-link {
+        color: var(--silver-1);
+    }
+
+    .pagerView-section.previous.active .pagerView-link,
+    .pagerView-section.next.active .pagerView-link {
+        color: var(--white);
+    }
+
+    /* GOTD */
+    #giftSelectorView-inbox {
+        background: var(--bg-main);
+        color: var(--light-gray);
+    }
+
+    #giftSelectorView-inbox a {
+        color: var(--blue);
+    }
+
+    .giftSelectorView-inboxHeader {
+        background: var(--dark-gray-8);
+    }
+
+    .giftSelectorView-inboxGiftOfTheDay-label,
+    .giftSelectorView-inboxGiftOfTheDay abbr {
+        color: var(--light-gray);
+    }
+
+    .giftSelectorView-inbox-giftRow {
+        border-bottom-color: var(--border-1);
+    }
+
+    #giftSelectorView-inbox span {
+        text-shadow: none;
+    }
+
+    #giftSelectorView-inbox .mousehuntActionButton {
+        background: var(--yellow-3);
+        box-shadow: 1px 1px 1px var(--bg-main);
+        color: var(--black) !important;
+        border: var(--border-1);
+    }
+
+    #giftSelectorView-inbox .mousehuntActionButton:before {
+        background: var(--yellow-2);
+        box-shadow: 1px 1px 1px var(--bg-main);
+    }
+
+    #giftSelectorView-inbox .mousehuntActionButton:hover {
+        background: var(--yellow-3);
+        box-shadow: 0 0 5px var(--bg-main) inset, 1px 1px 1px var(--bg-main);
+    }
+
+    #giftSelectorView-inbox .mousehuntActionButton:hover:before {
+        background: var(--yellow-3);
+    }
+
+    #giftSelectorView-inbox .mousehuntActionButton.cancel,
+    #giftSelectorView-inbox .mousehuntActionButton.disabled {
+        background-color: var(--gray-5) !important;
+    }
+
+    #giftSelectorView-inbox .mousehuntActionButton.cancel:before,
+    #giftSelectorView-inbox .mousehuntActionButton.diabled:before {
+        background-color: var(--gray-8) !important;
+    }
+
+    .giftSelectorView-inbox-giftRow:nth-child(even) {
+        background: var(--dark-gray-8);
+    }
+
+    .giftSelectorView {
+        color: var(--light-gray);
+    }
+
+    .giftSelectorView a {
+        color: var(--blue);
+    }
+
+    .giftSelectorView-headerContainer {
+        background-color: var(--black);
+    }
+    .giftSelectorView-tabHeader span {
+        background: var(--gray-4);
+        color: var(--light-gray);
+    }
+
+    .giftSelectorView-tabHeader:hover span,
+    .giftSelectorView-tabHeader.active span {
+        background: var(--bg-main);
+        color: var(--light-gray);
+    }
+
+    .giftSelectorView-content-subtitle {
+        border-bottom-color: var(--border-1);
+    }
+
+    .giftSelectorView-content-rightBar {
+        background: var(--bg-main);
+    }
+
+    .giftSelectorView-claimableGift.accordion_disabled:after,
+    .giftSelectorView-claimableGift.expanded:after {
+        box-shadow: 0 -1px 1px var(--border-1) inset;
+    }
+
+    .giftSelectorView-friendRow-action.claim,
+    .giftSelectorView-friendRow-action.return {
+        background: var(--dark-gray-8);
+        box-shadow: 0 0 1px var(--white) inset, 0 3px 1px var(--bg-main) inset;
+    }
+
+    .giftSelectorView-friendRow-action.ignore {
+        background: var(--bg-main);
+        box-shadow: 0 0 1px var(--border-1) inset;
+    }
+
+    .giftSelectorView-inbox-footer {
+        background: var(--dark-gray-8);
+    }
+
+    .giftSelectorView-inbox-footer-viewMore a {
+        background: var(--bg-main);
+    }
+
+    .giftSelectorView-actionContainer {
+        background: var(--gray-4);
+    }
+
+    .giftSelectorView-gift-padding {
+        background-color: var(--bg-main);
+        box-shadow: 0 0 1px var(--white) inset;
+    }
+
+    .giftSelectorView-friend-padding,
+    .giftSelectorView-confirmPopup-block-actionItem .giftSelectorView-friend:hover .giftSelectorView-friend-padding {
+        background-color: var(--bg-main);
+        box-shadow: 0 0 1px var(--white) inset;
+    }
+
+    .giftSelectorView-friend.selected .giftSelectorView-friend-padding,
+    .giftSelectorView-friend-returnGift.selected .giftSelectorView-friend-padding {
+        background-color: var(--blue-0);
+    }
+
+    .giftSelectorView-friend.favorite .giftSelectorView-friend-padding {
+        box-shadow: 0 0 3px var(--yellow-2) inset;
+    }
+
+    .tournamentPage-tournamentHeading {
+        color: var(--light-gray);
+    }
+
+    .tournamentPage-container .mousehuntTabHeader.active span {
+        background: var(--dark-gray-4);
+    }
+
+    .tournamentPage-container .mousehuntTabHeader span {
+        color: var(--light-gray);
+        background: var(--dark-gray-8);
+        text-shadow: none;
+        box-shadow: 1px 1px 1px var(--bg-main);
+        border-bottom-color: var(--border-1);
+    }
+
+    .tournamentPage-container .mousehuntTabContentContainer {
+        background: var(--dark-gray-4);
+        border-color: var(--border-1);
+        box-shadow: 1px 1px 1px var(--bg-main) inset;
+    }
+
+    .mousehuntTabContentContainer-padding {
+        background: var(--bg-main);
+        border-color: var(--border-1);
+        box-shadow: 0 0 2px 2px var(--border-1) inset;
+    }
+
+    .tournamentPage-tournamentRow {
+        color: var(--light-gray);
+    }
+
+    .tournamentPage-tournament-column {
+        color: var(--light-gray);
+    }
+
+    .tournamentPage-tournament-column.label {
+        color: var(--orange-2);
+    }
+
+    .tournamentPage-tournamentRow:hover:before {
+        box-shadow: 0 0 10px var(--black) inset;
+    }
+
+    /* #endregion Friends */
+    /* #region Marketplace */
+    .marketplaceView-header-tabHeader {
+        color: var(--light-gray);
+        background: var(--dark-gray-16)
+    }
+
+    .marketplaceView-header-tabHeader:hover,
+    .marketplaceView-header-tabHeader.active {
+        background: var(--bg-main);
+    }
+    .marketplaceView .marketplaceContentContainer {
+        background: var(--bg-main);
+    }
+
+    .marketplaceHome-blockItem,
+    .marketplaceHome-blockItem-value {
+        color: var(--light-gray);
+    }
+    
+    .marketplaceHome-block-carousel .marketplaceHome-block-viewAll {
+        color: var(--light-gray);
+    }
+    
+    .marketplaceView {
+        color: var(--light-gray);
+    }
+    
+    .marketplaceView h1 {
+        color: var(--light-gray);
+        border-bottom-color: var(--light-gray);
+    }
+    
+    .marketplaceView-table tr:nth-child(odd) {
+        background: var(--bg-main);
+        color: var(--light-gray);
+    }
+    
+    .marketplaceView-table tr:nth-child(even) {
+        background: var(--dark-gray-8);
+        color: var(--light-gray);
+    }
+    
+    .marketplaceView-trendContainer {
+        background: var(--bg-main);
+        border-color: var(--border-1);
+    }
+    
+    .marketplaceView-table-name a, .marketplaceView-table-name a:hover {
+        color: var(--light-gray);
+    }
+    
+    .marketplaceView-browse-sidebar-link {
+        background: var(--dark-gray-16);
+        color: var(--light-gray);
+    }
+    
+    .marketplaceContentContainer label {
+        color: var(--light-gray);
+    }
+    
+    .marketplaceHome-block-viewAll {
+        color: var(--light-gray);
+    }
+    
+    .marketplaceView-item-quickListings th {
+        color: var(--light-gray);
+    }
+    
+    .marketplaceView-item-quickListings a.marketplaceView-goldValue {
+        color: var(--light-gray);
+    }
+    
+    .marketplaceView .mousehuntCharacterGuideBox-content {
+        background-color: var(--gray-3);
+    }
+
+    /* #endregion Marketplace */
 }
