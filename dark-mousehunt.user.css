@@ -6,7 +6,7 @@
 @supportURL   https://github.com/InKahootz/dark-mousehunt/issues
 @updateURL    https://raw.githubusercontent.com/InKahootz/dark-mousehunt/main/dark-mousehunt.user.css
 @author       InKahootz (https://github.com/InKahootz)
-@version      0.6.0
+@version      0.6.1
 @license      MIT
 @preprocessor stylus
 ==/UserStyle== 
@@ -1020,6 +1020,10 @@
     .marketplaceView-trendContainer {
         background: var(--bg-main);
         border-color: var(--border-1);
+    }
+    
+    .marketplaceView-trendDifference {
+        color: var(--light-gray);
     }
     
     .marketplaceView-table-name a, .marketplaceView-table-name a:hover {
