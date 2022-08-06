@@ -6,7 +6,7 @@
 @supportURL   https://github.com/InKahootz/dark-mousehunt/issues
 @updateURL    https://raw.githubusercontent.com/InKahootz/dark-mousehunt/main/dark-mousehunt.user.css
 @author       InKahootz (https://github.com/InKahootz)
-@version      0.6.2
+@version      0.7.0
 @license      MIT
 @preprocessor stylus
 ==/UserStyle== 
@@ -985,15 +985,16 @@
     .marketplaceView-header-tabHeader.active {
         background: var(--bg-main);
     }
-    
+
     .marketplaceView .marketplaceContentContainer {
         background: var(--bg-main);
     }
-    
-    .marketplaceHome-blockMenu.active, .marketplaceHome-blockMenu:hover {
+
+    .marketplaceHome-blockMenu.active,
+    .marketplaceHome-blockMenu:hover {
         color: var(--white);
     }
-    
+
     .marketplaceHome-blockMenu {
         color: var(--silver-0);
         border-bottom-color: var(--bg-main);
@@ -1003,86 +1004,151 @@
     .marketplaceHome-blockItem-value {
         color: var(--light-gray);
     }
-    
+
     .marketplaceHome-block-carousel .marketplaceHome-block-viewAll {
         color: var(--light-gray);
     }
-    
+
     .marketplaceHome-block-viewAll:hover {
         background-color: var(--black);
         color: var(--light-gray);
     }
-    
+
     .marketplaceView {
         color: var(--light-gray);
     }
-    
+
     .marketplaceView h1 {
         color: var(--light-gray);
         border-bottom-color: var(--light-gray);
     }
-    
+
     .marketplaceView-table tr.empty {
         background: var(--bg-main) !important;
     }
-    
+
     .marketplaceView-table tr:nth-child(odd) {
         background: var(--bg-main);
         color: var(--light-gray);
     }
-    
+
     .marketplaceView-table tr:nth-child(even) {
         background: var(--dark-gray-8);
         color: var(--light-gray);
     }
-    
+
     .marketplaceView-trendContainer {
         background: var(--bg-main);
         border-color: var(--border-1);
     }
-    
+
     .marketplaceView-trendDifference {
         color: var(--light-gray);
     }
-    
-    .marketplaceView-table-name a, .marketplaceView-table-name a:hover {
+
+    .marketplaceView-table-name a,
+    .marketplaceView-table-name a:hover {
         color: var(--light-gray);
     }
-    
+
     .marketplaceView-browse-sidebar-link {
         background: var(--dark-gray-16);
         color: var(--light-gray);
     }
-    
+
     .marketplaceContentContainer label {
         color: var(--light-gray);
     }
-    
+
     .marketplaceHome-block-viewAll {
         color: var(--light-gray);
     }
-    
+
     .marketplaceView-item-quickListings th {
         color: var(--light-gray);
     }
-    
+
     .marketplaceView-item-quickListings a.marketplaceView-goldValue {
         color: var(--light-gray);
     }
-    
+
     .marketplaceView .mousehuntCharacterGuideBox-content {
         background-color: var(--gray-3);
     }
-    
+
     .marketplaceView-moreLink {
         border-color: var(--border-1);
         color: var(--light-gray);
     }
-    
+
     .marketplaceView-moreLink:hover {
         background-color: var(--dark-gray-2);
         color: var(--light-gray);
     }
 
     /* #endregion Marketplace */
+    /* #region Inbox */
+    #messengerUINotification {
+        background: var(--bg-main) !important;
+        border-color: var(--border-1);
+        color: var(--light-gray);
+    }
+
+    #messengerUINotification a {
+        color: var(--blue);
+    }
+
+    #messengerUINotification .messengerUINotificationClose {
+        background: var(--bg-main);
+        border-color: var(--border-1);
+    }
+
+
+
+    #messengerUINotification .notificationHeader {
+        background: var(--black);
+    }
+
+    #messengerUINotification .notificationMessageList {
+        border-left-color: var(--silver-1);
+    }
+
+    #messengerUINotification .tabs a,
+    #messengerUINotification .tabs a:hover,
+    #messengerUINotification .tabs a:visited {
+        background: var(--gray-3);
+        color: var(--light-gray) !important;
+        border-bottom-color: var(--silver-1);
+    }
+    
+    #messengerUINotification .tabs a:hover {
+        background-color: var(--blue-1);
+    }
+
+    #messengerUINotification .tabs a.active .arrow {
+        border-left-color: var(--bg-main);
+    }
+    
+    #messengerUINotification .tabs a.active {
+        background: var(--bg-main);
+    }
+
+    .notificationMessageList .message {
+        border-bottom-color: var(--silver-1);
+    }
+
+    .notificationMessageList .message:nth-child(2n) {
+        background: var(--bg-main);
+    }
+
+    .notificationMessageList .message:nth-child(2n+1) {
+        background: var(--gray-5);
+    }
+    
+    .notificationMessageList .message .date {
+        color: var(--light-gray) !important;
+    }
+    
+    /* #endregion Inbox */
+    
 }
