@@ -6,7 +6,7 @@
 @supportURL   https://github.com/InKahootz/dark-mousehunt/issues
 @updateURL    https://raw.githubusercontent.com/InKahootz/dark-mousehunt/main/dark-mousehunt.user.css
 @author       InKahootz (https://github.com/InKahootz)
-@version      0.7.0
+@version      0.8.0
 @license      MIT
 @preprocessor stylus
 ==/UserStyle== 
@@ -18,6 +18,7 @@
         --white: #ffffff;
         --blue: #8ab4f8;
         --black: #121212;
+        --dark-gray-0: var(--black);
         --dark-gray-1: #1e1e1e;
         --dark-gray-2: #232323;
         --dark-gray-3: #252525;
@@ -45,7 +46,10 @@
 
         --bg-main: var(--dark-gray-2);
 
-        --themed-text: var(--light-gray);
+        --primary-text: #ffffffff;
+        --secondary-text: #ffffffb3;
+        --disabled-text: #00000061;
+        --themed-text: #bf9976;
 
         --gray-0: #1E1E1F;
         --gray-1: #262628;
@@ -157,6 +161,92 @@
         --pink-8: #FEECF2;
     }
 
+    .mousehuntActionButton {
+        background: var(--yellow-3);
+        box-shadow: 1px 1px 1px var(--dark-gray-2);
+        border: 1px solid var(--white);
+    }
+
+    .mousehuntActionButton:before {
+        background: var(--yellow-2);
+        box-shadow: 0 0 10px var(--yellow-4) inset
+    }
+
+    .mousehuntActionButton span {
+        text-shadow: 0 0 1px var(--black);
+    }
+
+    .mousehuntActionButton:hover {
+        background-color: var(--yellow-4);
+        box-shadow: 0 0 5px var(--black) inset, 1px 1px 1px var(--black);
+    }
+
+    .mousehuntActionButton:hover:before {
+        background-color: var(--yellow-4)
+    }
+
+    .mousehuntActionButton.lightBlue {
+        background: #b3edff;
+        box-shadow: 1px 1px 1px #eee;
+        border-color: #50549c
+    }
+
+    .mousehuntActionButton.lightBlue:before {
+        background: #b2e2ff;
+        box-shadow: 0 0 10px #7bf inset
+    }
+
+    .mousehuntActionButton.lightBlue:hover {
+        background-color: #b3f4ff;
+        -webkit-box-shadow: 0 0 5px #fff inset, 1px 1px 1px #fff;
+        -moz-box-shadow: 0 0 5px #fff inset, 1px 1px 1px #fff;
+        box-shadow: 0 0 5px #fff inset, 1px 1px 1px #fff;
+        border-color: #000
+    }
+
+    .mousehuntActionButton.lightBlue:hover:before {
+        background-color: #a5e2ff;
+        box-shadow: 0 0 10px #f0f4f7 inset
+    }
+
+    .mousehuntActionButton.cancel,
+    .mousehuntActionButton.disabled {
+        background-color: #eee!important
+    }
+
+    .mousehuntActionButton.cancel:before,
+    .mousehuntActionButton.disabled:before {
+        background-color: #ccc!important;
+        box-shadow: 0 0 10px #eee inset
+    }
+
+    .mousehuntActionButton.disabled span {
+        color: #666
+    }
+
+    .mousehuntActionButton.disabled:hover {
+        box-shadow: 0 0 3px red, 1px 1px 1px #fff!important
+    }
+
+    .mousehuntActionButton.good:hover {
+        box-shadow: 0 0 3px #4eff00, 1px 1px 1px #fff
+    }
+
+    .mousehuntActionButton.selected {
+        background: #45df00;
+        box-shadow: 1px 1px 1px #e2efda
+    }
+
+    .mousehuntActionButton.selected:before {
+        background: #3c9a12;
+        box-shadow: 0 0 10px #06ff00 inset
+    }
+
+    .mousehuntActionButton.selected span {
+        color: #fff;
+        text-shadow: 0 0 1px #000;
+    }
+
     #overlayBg {
         background: rgba(0, 0, 0, .7) !important;
     }
@@ -173,7 +263,7 @@
     /* Large outside columns */
     .pageFrameView-column.right,
     .pageFrameView-column.left {
-        background: var(--black);
+        background: #000;
         border-color: var(--bg-main)
     }
 
@@ -291,10 +381,13 @@
         box-shadow: -1px -1px 1px var(--border-1) inset;
     }
 
-    .campPage-trap-baitLabel,
+    .campPage-trap-baitLabel {
+        color: var(--light-gray);
+    }
+
     .campPage-trap-baitDetails,
     .campPage-trap-armedItem-skin-description {
-        color: #ad6b18;
+        color: var(--themed-text);
         text-shadow: none;
     }
 
@@ -305,7 +398,7 @@
 
     .campPage-trap-armedItem-empty {
         background: var(--dark-gray-8);
-        color: #ad6b18;
+        color: var(--themed-text);
         box-shadow: none;
     }
 
@@ -316,7 +409,7 @@
 
     .campPage-trap-armedItem .quantity span {
         background-color: var(--dark-gray-8);
-        color: #ad6b18;
+        color: var(--themed-text);
         box-shadow: none;
     }
 
@@ -341,7 +434,7 @@
 
     .campPage-trap-itemStats {
         background: var(--dark-gray-8);
-        color: #ad6b18;
+        color: var(--themed-text);
         border-color: var(--border-1);
         box-shadow: -1px -1px 2px var(--dark-gray-16) inset;
     }
@@ -349,19 +442,42 @@
     .campPage-trap-trapStat .value {
         background: var(--dark-gray-8);
         border-color: var(--border-1);
-        color: #ad6b18
+        color: var(--themed-text)
     }
 
     .campPage-trap-trapEffectiveness {
         background: var(--dark-gray-8);
         border-color: var(--border-1);
         box-shadow: none;
-        color: #ad6b18;
+        color: var(--light-gray);
+    }
+
+    .campPage-trap-trapEffectiveness span {
+        color: var(--themed-text);
     }
 
     .campPage-trap-friendContainer .label,
     .campPage-trap-friendContainer-toggleFriendsButton {
-        color: #ad6b18;
+        color: var(--light-gray);
+    }
+
+    .campPage-trap-friendContainer span {
+        color: var(--themed-text);
+    }
+
+    .campPage-trap-friendList.full {
+        background: var(--bg-main);
+        box-shadow: 0 0 3px var(--border-1) inset;
+        color: var(--light-gray);
+    }
+
+    .campPage-trap-friendContainer-environment a {
+        color: var(--themed-text);
+    }
+
+    .campPage-trap-friendList.loading .campPage-trap-friendList-loading {
+        background: var(--bg-main) url(https://www.mousehuntgame.com/images/ui/loaders/mouse_loading_small.gif?asset_cache_version=2) 50% 50% no-repeat;
+        height: 100px
     }
 
     /* Blueprint Drawer */
@@ -793,7 +909,7 @@
     /* GOTD */
     #giftSelectorView-inbox {
         background: var(--bg-main);
-        color: var(--light-gray);
+        color: var(--primary-text);
     }
 
     #giftSelectorView-inbox a {
@@ -817,10 +933,14 @@
         text-shadow: none;
     }
 
+    .giftSelectorView-inbox-gift-sent {
+        color: var(--secondary-text);
+    }
+    /*
     #giftSelectorView-inbox .mousehuntActionButton {
         background: var(--yellow-3);
         box-shadow: 1px 1px 1px var(--bg-main);
-        color: var(--black) !important;
+        color: var(--light-gray) !important;
         border: var(--border-1);
     }
 
@@ -847,7 +967,7 @@
     #giftSelectorView-inbox .mousehuntActionButton.diabled:before {
         background-color: var(--gray-8) !important;
     }
-
+    */
     .giftSelectorView-inbox-giftRow:nth-child(even) {
         background: var(--dark-gray-8);
     }
@@ -874,8 +994,16 @@
         color: var(--light-gray);
     }
 
+    .giftSelectorView-tabContent {
+        background-color: var(--silver-0)
+    }
+
     .giftSelectorView-content-subtitle {
         border-bottom-color: var(--border-1);
+    }
+
+    .giftSelectorView-content-leftBar-highlightBlock {
+        background: var(--bg-main);
     }
 
     .giftSelectorView-content-rightBar {
@@ -887,10 +1015,20 @@
         box-shadow: 0 -1px 1px var(--border-1) inset;
     }
 
+    .giftSelectorView-friendRow:hover {
+        box-shadow: 0 0 1px var(--white) inset;
+    }
+
     .giftSelectorView-friendRow-action.claim,
     .giftSelectorView-friendRow-action.return {
         background: var(--dark-gray-8);
         box-shadow: 0 0 1px var(--white) inset, 0 3px 1px var(--bg-main) inset;
+    }
+
+    .giftSelectorView-friendRow-action.selected,
+    .giftSelectorView-friend.selected .giftSelectorView-friendRow-action {
+        background: var(--blue-1);
+        box-shadow: 0 0 1px var(--white) inset, 0 3px 1px var(--blue-2) inset;
     }
 
     .giftSelectorView-friendRow-action.ignore {
@@ -900,6 +1038,7 @@
 
     .giftSelectorView-inbox-footer {
         background: var(--dark-gray-8);
+        border-top-color: var(--border-1);
     }
 
     .giftSelectorView-inbox-footer-viewMore a {
@@ -907,12 +1046,16 @@
     }
 
     .giftSelectorView-actionContainer {
-        background: var(--gray-4);
+        background: var(--blue-0);
     }
 
     .giftSelectorView-gift-padding {
         background-color: var(--bg-main);
         box-shadow: 0 0 1px var(--white) inset;
+    }
+
+    .giftSelectorView-friend-sent {
+        color: var(--silver-2);
     }
 
     .giftSelectorView-friend-padding,
@@ -928,6 +1071,26 @@
 
     .giftSelectorView-friend.favorite .giftSelectorView-friend-padding {
         box-shadow: 0 0 3px var(--yellow-2) inset;
+    }
+
+    .giftSelectorView-friend.complete .giftSelectorView-friend-padding {
+        background-color: var(--green-1);
+    }
+
+    .giftSelectorView-friend.complete .giftSelectorView-friend-padding:after {
+        background-color: var(--green-0);
+        color: var(--light-gray);
+        border-color: var(--green-2);
+    }
+
+    .giftSelectorView-confirmPopup-content {
+        background: var(--bg-main);
+    }
+
+    .giftSelectorView-confirmPopup-padding {
+        background-color: var(--blue-0);
+        border-color: var(--blue-0);
+        box-shadow: 0 0 10px var(--black);
     }
 
     .tournamentPage-tournamentHeading {
@@ -1120,7 +1283,7 @@
         color: var(--light-gray) !important;
         border-bottom-color: var(--silver-1);
     }
-    
+
     #messengerUINotification .tabs a:hover {
         background-color: var(--blue-1);
     }
@@ -1128,7 +1291,7 @@
     #messengerUINotification .tabs a.active .arrow {
         border-left-color: var(--bg-main);
     }
-    
+
     #messengerUINotification .tabs a.active {
         background: var(--bg-main);
     }
@@ -1144,11 +1307,202 @@
     .notificationMessageList .message:nth-child(2n+1) {
         background: var(--gray-5);
     }
-    
+
     .notificationMessageList .message .date {
         color: var(--light-gray) !important;
     }
-    
+
     /* #endregion Inbox */
+    /* #region Premium Shoppe */
+    .MHCheckoutRootView .mousehuntTooltip {
+        background-color: var(--bg-main);
+        color: var(--white);
+        box-shadow: 2px 3px 4px var(--silver-0);
+        border-color: var(--white);
+    }
+
+    .MHCheckoutRootView {
+        color: var(--primary-text);
+        background-color: var(--bg-main);
+    }
     
+    .MHCheckoutRootView-header {
+        background: #11263b;
+        box-shadow: 5px 5px 100px #11263b inset;
+    }
+    
+    .MHCheckoutRootView-header-block {
+        background-color: var(--bg-main);
+    }
+    
+    .MHCheckoutCartView-header-totalCost {
+        background-color: var(--dark-gray-8);
+    }
+    
+    .MHCheckoutRootView-header-block-dropdown {
+        background: var(--bg-main);
+        color: var(--primary-text);
+    }
+    
+    .MHCheckoutCartView-reward {
+        color: var(--primary-text);
+    }
+    
+    .MHCheckoutCartView-reward:hover {
+        background-color: var(--dark-gray-16);
+    }
+
+    .MHCheckoutRootView-pageContainer {
+        background-color: var(--bg-main);
+    }
+
+    .MHCheckout-goldenShield-small {
+        background: var(--bg-main);
+        box-shadow: 0 0 10px #000111 inset, 0 17px 13px var(--black) inset;
+    }
+
+    .MHCheckoutTooltipView-item {
+        color: var(--secondary-text);
+    }
+
+    .MHCheckoutRootView-page-content.loading {
+        background: var(--bg-main) url(https://www.mousehuntgame.com/images/ui/loaders/mouse_loading_large.gif?asset_cache_version=2) 50% 50% no-repeat
+    }
+
+    .MHCheckout-title {
+        color: var(--primary-text);
+    }
+
+    .MHCheckoutRootView-categoryContainer a {
+        color: var(--blue);
+    }
+
+    .MHCheckoutRootView-category {
+        background: var(--dark-gray-8);
+        border: 1px solid var(--white);
+    }
+
+    .MHCheckoutRootView-category.disabled {
+        color: var(--red)!important
+    }
+
+    .MHCheckoutRootView-category:hover,
+    .MHCheckoutRootView-category.active {
+        background: var(--bg-main);
+        border-bottom: 1px solid var(--bg-main);
+    }
+
+    .MHCheckout-groupedItems-description span {
+        text-shadow: 1px 1px 2px var(--black);
+    }
+
+    .MHCheckoutPageView-tabContainer {
+        border-bottom-color: var(--border-1);
+    }
+    .MHCheckoutPageView-tab-padding {
+        background-color: var(--dark-gray-8);
+    }
+
+    .MHCheckoutPageView-tab-name {
+        color: var(--blue);
+    }
+
+    .MHCheckoutPageView-tab:hover .MHCheckoutPageView-tab-padding,
+    .MHCheckoutPageView-tab.active .MHCheckoutPageView-tab-padding {
+        background-color: var(--bg-main)
+    }
+
+    .MHCheckoutPageView-tab .MHCheckoutPageView-tab-padding:after {
+        border: 1px solid var(--border-1);
+        border-bottom: none;
+    }
+
+    .MHCheckoutPageView-tab.active .MHCheckoutPageView-tab-padding:after,
+    .MHCheckoutPageView-tab:hover .MHCheckoutPageView-tab-padding:after {
+        border-color: var(--white);
+    }
+    
+    .MHCheckoutRewardPageView-relatedItems {
+        background-color: var(--dark-gray-4);
+        box-shadow: 5px 10px 10px var(--dark-gray-0) inset;
+    }
+    
+    .MHCheckoutRewardPageView-breadcrumbContainer {
+        border-bottom-color: var(--border-1);
+    }
+    
+    .MHCheckoutRewardPageView-breadcrumbContainer a {
+        color: var(--blue);
+    }
+    
+    .MHCheckoutRewardPageView-quantityOwned {
+        color: var(--secondary-text);
+        border-top-color: var(--border-1);
+    }
+    
+    .MHCheckoutPurchaseButtonView-backButton {
+        background: var(--dark-gray-4);
+        box-shadow: 0 5px 5px var(--dark-gray-2) inset, 1px 1px 1px var(--dark-gray-8);
+    }
+    
+    .MHCheckoutPurchaseButtonView-backButton .MHCheckoutPurchaseButtonView-indent {
+        background: var(--dark-gray-2);
+        border-top-color: var(--dark-gray-6);
+        border-bottom-color: var(--dark-gray-8);
+        box-shadow: 0 -9px 10px var(--dark-gray-16) inset;
+    }
+    
+    .MHCheckoutPurchaseButtonView-backButton:hover {
+        background-color: var(--dark-gray-2);
+        box-shadow: 0 5px 5px var(--dark-gray-1) inset, 0 0 3px var(--dark-gray-2);
+    }
+    
+    .MHCheckoutPurchaseButtonView-backButton:hover .MHCheckoutPurchaseButtonView-indent {
+        background-color: var(--bg-main);
+        box-shadow: 0 -9px 10px var(--dark-gray-1) inset;
+    }
+    
+    .MHCheckout-label.MHCheckout-goldenShield-block,
+    .MHCheckout-superBrieIntro-padding,
+    .MHCheckout-superBrie-tag.goldenShield {
+        color: var(--black);
+    }
+    
+    .MHCheckout-featuredItemTransparent .MHCheckout-featuredItem-name {
+        background-color: var(--dark-gray-2);
+    }
+
+    /* #endregion Premium Shoppe */
+
+    /* #region Profile */
+
+    .hunterInfoView-idCardBlock-teamInfo span {
+        color: var(--themed-text);
+    }
+    
+    .hunterInfoView-wrapper .hunterInfoView-idCardBlock-stats {
+        background: var(--dark-gray-16);    
+    }
+    
+    .hunterInfoView-wrapper .hunterInfoView-idCardBlock-teamInfo-container {
+        background-color: var(--dark-gray-16);
+    }
+    
+    .hunterInfoView-wrapper .hunterInfoView-idCardBlock-teamInfo-container:before {
+        background-color: var(--dark-gray-16);
+    }
+    
+    .hunterInfoView-wrapper .hunterInfoView-idCardBlock-stats-huntingSince {
+        background-color: var(--dark-gray-16);
+    }
+    
+    .hunterInfoView-wrapper .hunterInfoView-idCardBlock-stats-horn-container {
+        background-color: var(--dark-gray-16);
+    }
+    
+    .hunterInfoView-idCardBlock-goldenShield-text {
+        color: var(--black);
+    }
+
+    /* #endregion Profile */
 }
