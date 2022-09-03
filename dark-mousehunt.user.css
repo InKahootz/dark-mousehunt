@@ -6,1503 +6,1720 @@
 @supportURL   https://github.com/InKahootz/dark-mousehunt/issues
 @updateURL    https://raw.githubusercontent.com/InKahootz/dark-mousehunt/main/dark-mousehunt.user.css
 @author       InKahootz (https://github.com/InKahootz)
-@version      0.8.0
+@version      0.9.0
 @license      MIT
 @preprocessor stylus
 ==/UserStyle== 
 */
-@-moz-document domain("mousehuntgame.com") {
+@-moz-document url-prefix("https://www.mousehuntgame.com"),
+url-prefix("http://www.mousehuntgame.com") {
+    /* Main */
     :root {
-        --red: #d93025;
-        --green: #22c659;
-        --white: #ffffff;
-        --blue: #8ab4f8;
-        --black: #121212;
-        --dark-gray-0: var(--black);
-        --dark-gray-1: #1e1e1e;
-        --dark-gray-2: #232323;
-        --dark-gray-3: #252525;
-        --dark-gray-4: #272727;
-        --dark-gray-6: #2c2c2c;
-        --dark-gray-8: #2e2e2e;
-        --dark-gray-12: #333333;
-        --dark-gray-16: #363636;
-        --dark-gray-24: #383838;
-        --light-gray: #e0e0e0;
+        --text-normal: var(--custom-text-normal, #dcddde);
+        --text-muted: var(--custom-text-muted, #a3a6aa);
+        --text-link: var(--custom-text-link, hsl(197, 100%, 47.8%));
+        --text-positive: var(--custom-text-positive, hsl(139, 51.6%, 52.2%));
+        --text-danger: var(--custom-text-danger, hsl(359, 82%, 73.9%));
+        --background-primary: var(--custom-background-primary, #36393f);
+        /* background color for most elements */
+        --background-secondary: var(--custom-background-secondary, #2f3136);
+        /* should be darker than primary */
+        --background-accent: var(--custom-background-accent, #4f545c);
+        /* should be lighter than primary */
+        --background-floating: var(--custom-background-floating, #18191c);
+        /* should be darker than secondary */
+        --text-contrast: var(--custom-text-contrast, #4f545c);
+        /* used in situations where darker text is needed */
+        --background-trap: var(--custom-background-trap, var(--background-secondary));
+        /* background behind trap art */
+        --background-outer: var(--custom-background-outer, var(--background-floating));
 
-        --gray-1: #4a4b4f;
-
-        --border-1: #4a4b4f;
-
-        --bg-dark-yellow: #3e3c37;
-        --bg-dark-yellow-2: #332f22;
-        --bg-dark-green: #262f28;
-        --bg-dark-red: #312321;
-        --bg-dark-orange: #31211d;
-        --bg-dark-purple: #392b46;
-        --bg-dark-pink: #372730;
-
-        --bg-transparent-10: rgba(255, 255, 255, .1);
-
-        --bg-main: var(--dark-gray-2);
-
-        --primary-text: #ffffffff;
-        --secondary-text: #ffffffb3;
-        --disabled-text: #00000061;
-        --themed-text: #bf9976;
-
-        --gray-0: #1E1E1F;
-        --gray-1: #262628;
-        --gray-2: #282F31;
-        --gray-3: #363739;
-        --gray-4: #3E3F42;
-        --gray-5: #46474B;
-        --gray-6: #4E4F53;
-        --gray-7: #56575B;
-        --gray-8: #5E5F63;
-
-        --silver-0: #808389;
-        --silver-1: #96999F;
-        --silver-2: #ACAFB3;
-        --silver-3: #C1C2C6;
-        --silver-4: #D3D4D7;
-        --silver-5: #E3E4E6;
-        --silver-6: #EFF0F1;
-        --silver-7: #F9F9F9;
-        --silver-8: #FFFFFF;
-
-        --red-0: #5A0603;
-        --red-1: #7C0B08;
-        --red-2: #9A100C;
-        --red-3: #B01814;
-        --red-4: #C9211B;
-        --red-5: #E2342E;
-        --red-6: #EB7571;
-        --red-7: #F5B6B4;
-        --red-8: #FBE5E4;
-
-        --orange-0: #622A09;
-        --orange-1: #873D10;
-        --orange-2: #A84D16;
-        --orange-3: #C15F1E;
-        --orange-4: #DD7828;
-        --orange-5: #F6983E;
-        --orange-6: #F9B97C;
-        --orange-7: #FCDABA;
-        --orange-8: #FEF2E6;
-
-        --yellow-0: #67410E;
-        --yellow-1: #8F5D15;
-        --yellow-2: #B2761D;
-        --yellow-3: #CF8E25;
-        --yellow-4: #EECC2E;
-        --yellow-5: #FFEC4B;
-        --yellow-6: #FFF498;
-        --yellow-7: #FFF9C8;
-        --yellow-8: #FFFDEB;
-
-        --green-0: #0E4420;
-        --green-1: #155E2F;
-        --green-2: #1D743B;
-        --green-3: #248548;
-        --green-4: #2D9855;
-        --green-5: #3BAB6A;
-        --green-6: #7AC69A;
-        --green-7: #B8E1C9;
-        --green-8: #E6F4EC;
-
-        --teal-0: #0C4739;
-        --teal-1: #136150;
-        --teal-2: #187865;
-        --teal-3: #208A79;
-        --teal-4: #289E8E;
-        --teal-5: #38B1AB;
-        --teal-6: #78CAC6;
-        --teal-7: #B7E4E2;
-        --teal-8: #E5F5F4;
-
-        --blue-0: #00325E;
-        --blue-1: #004681;
-        --blue-2: #005AA0;
-        --blue-3: #006CB7;
-        --blue-4: #007FD1;
-        --blue-5: #0A9FEB;
-        --blue-6: #58BEF1;
-        --blue-7: #A5DEFD;
-        --blue-8: #DFF3FC;
-
-        --indigo-0: #202652;
-        --indigo-1: #2E3671;
-        --indigo-2: #3A448C;
-        --indigo-3: #4651A1;
-        --indigo-4: #535FB7;
-        --indigo-5: #6675CE;
-        --indigo-6: #97A1DE;
-        --indigo-7: #CBD1F7;
-        --indigo-8: #EBEDF9;
-
-        --purple-0: #36285D;
-        --purple-1: #4C3980;
-        --purple-2: #60479E;
-        --purple-3: #7155B6;
-        --purple-4: #8565CF;
-        --purple-5: #9F7AE9;
-        --purple-6: #BEA5F0;
-        --purple-7: #E0D1FF;
-
-        --pink-0: #622031;
-        --pink-1: #872E47;
-        --pink-2: #A73B5A;
-        --pink-3: #BF486C;
-        --pink-4: #DA567E;
-        --pink-5: #F56D9A;
-        --pink-6: #F89CBA;
-        --pink-7: #FBCADB;
-        --pink-8: #FEECF2;
+        --background-outer-secondary: var(--custom-background-outer-secondary, #232429);
+        /* page background outside UI */
+        --background-border: var(--custom-background-border, var(--background-accent));
+        /* almost every border */
+        --loader-brightness: 0.2;
+        /* used to dim full page instances of the white loader mouse */
+        --hg-default-black: #000;
+        --hg-default-grey: #333;
+        --hg-default-white: #fff;
+        /* for resetting various things back to hg defaults */
     }
 
-    .mousehuntActionButton {
-        background: var(--yellow-3);
-        box-shadow: 1px 1px 1px var(--dark-gray-2);
-        border: 1px solid var(--white);
+    /*  
+	Incomplete:
+	- many random dialogs -- don't want to target them too generally
+	- team
+	- friends 
+	- journal -- not doing without a good color palette for all entry types
+	- travel -- not doing
+	- loaders -- the circular ones are ok
+	- premium shop -- not doing
+	*/
+    /*** General/Outer HUD ***/
+    .pageSidebarView a,
+    .pageFrameView-footer a {
+        color: var(--text-link);
     }
 
-    .mousehuntActionButton:before {
-        background: var(--yellow-2);
-        box-shadow: 0 0 10px var(--yellow-4) inset
+    body.hasSidebar {
+        background-color: var(--background-outer);
     }
 
-    .mousehuntActionButton span {
-        text-shadow: 0 0 1px var(--black);
+    body.PageTermsOfService .tos,
+    body.PagePrivacyPolicy .tos {
+        background-color: var(--hg-default-white);
+        color: var(--hg-default-grey);
+        padding: 5px;
     }
 
-    .mousehuntActionButton:hover {
-        background-color: var(--yellow-4);
-        box-shadow: 0 0 5px var(--black) inset, 1px 1px 1px var(--black);
+    .pageFrameView-column.left,
+    .pageFrameView-column.right {
+        background-image: none;
+        background-color: var(--background-outer);
+        border-color: var(--background-outer-secondary);
     }
 
-    .mousehuntActionButton:hover:before {
-        background-color: var(--yellow-4)
+    #mousehuntContainer.PageCamp {
+        box-shadow: inset 0px 0px 0px 1px var(--background-border);
+        /* darkens the 1px line on either side of the camp background image */
     }
 
-    .mousehuntActionButton.lightBlue {
-        background: #b3edff;
-        box-shadow: 1px 1px 1px #eee;
-        border-color: #50549c
+    .pageFrameView-content {
+        background-color: var(--background-outer-secondary);
     }
 
-    .mousehuntActionButton.lightBlue:before {
-        background: #b2e2ff;
-        box-shadow: 0 0 10px #7bf inset
-    }
-
-    .mousehuntActionButton.lightBlue:hover {
-        background-color: #b3f4ff;
-        -webkit-box-shadow: 0 0 5px #fff inset, 1px 1px 1px #fff;
-        -moz-box-shadow: 0 0 5px #fff inset, 1px 1px 1px #fff;
-        box-shadow: 0 0 5px #fff inset, 1px 1px 1px #fff;
-        border-color: #000
-    }
-
-    .mousehuntActionButton.lightBlue:hover:before {
-        background-color: #a5e2ff;
-        box-shadow: 0 0 10px #f0f4f7 inset
-    }
-
-    .mousehuntActionButton.cancel,
-    .mousehuntActionButton.disabled {
-        background-color: #eee!important
-    }
-
-    .mousehuntActionButton.cancel:before,
-    .mousehuntActionButton.disabled:before {
-        background-color: #ccc!important;
-        box-shadow: 0 0 10px #eee inset
-    }
-
-    .mousehuntActionButton.disabled span {
-        color: #666
-    }
-
-    .mousehuntActionButton.disabled:hover {
-        box-shadow: 0 0 3px red, 1px 1px 1px #fff!important
-    }
-
-    .mousehuntActionButton.good:hover {
-        box-shadow: 0 0 3px #4eff00, 1px 1px 1px #fff
-    }
-
-    .mousehuntActionButton.selected {
-        background: #45df00;
-        box-shadow: 1px 1px 1px #e2efda
-    }
-
-    .mousehuntActionButton.selected:before {
-        background: #3c9a12;
-        box-shadow: 0 0 10px #06ff00 inset
-    }
-
-    .mousehuntActionButton.selected span {
-        color: #fff;
-        text-shadow: 0 0 1px #000;
-    }
-
-    #overlayBg {
-        background: rgba(0, 0, 0, .7) !important;
-    }
-
-    /*
-    #overlayPopup .jsDialog.background {
-        background: var(--bg-main);
-    }
-    
-    #overlayPopup h2 {
-        color: var(--light-gray);
-    } 
-    */
-    /* Large outside columns */
-    .pageFrameView-column.right,
-    .pageFrameView-column.left {
-        background: #000;
-        border-color: var(--bg-main)
-    }
-
-    .pageFrameView-content,
     .pageFrameView-contentContainer {
-        background: var(--bg-main);
+        background-color: var(--background-outer-secondary);
     }
 
-    /* Sidebar */
-    .pageSidebarView {
-        background: var(--bg-main);
-    }
-
-    .pageSidebarView-block {
-        background: var(--bg-main);
-        color: var(--light-gray);
-    }
-
-    .pageSidebarView-block a {
-        color: var(--blue);
-    }
-
-    .pageSidebarView .fb-page {
-        background: transparent;
-    }
-
-    .pageSidebarView-user {
-        border: none;
-        color: var(--light-gray);
-    }
-
-    .pageSidebarView-user a {
-        color: var(--blue)
-    }
-
-    /* Sidebar Scoreboard */
-    .scoreboardRelativeRankingTableView-table {
-        border: 2px solid var(--border-1);
-    }
-
-    .scoreboardRelativeRankingTableView-table tr.highlight {
-        background: var(--bg-transparent-10);
-    }
-
-    /* Header */
     .mousehuntHeaderView {
-        background: var(--bg-main);
-        border-color: var(--border-1);
+        background-color: var(--background-outer-secondary);
     }
 
-    /* header with new notification */
-    .mousehuntHeaderView a.new {
-        background: linear-gradient(#007000, #003000) !important;
-    }
-
-    .mousehuntHeaderView-menu-notification {
-        background: rgb(233, 00, 00);
-        box-shadow: 1px 1px 1px var(--dark-gray-4);
-    }
-
-    .mousehuntHeaderView-gameTabs {
-        background: var(--dark-gray-8);
-        border-color: var(--border-1);
-    }
-
+    .mousehuntHeaderView-gameTabs,
     .mousehuntHeaderView .menuItem {
-        background: var(--dark-gray-8);
-        color: var(--light-gray);
-        border-color: var(--border-1);
+        background-image: none;
+        color: var(--text-normal);
+        box-shadow: none;
+        border-color: var(--background-border);
+        background-color: var(--background-primary);
     }
 
-    .mousehuntHeaderView-newsTicker {
-        background: var(--dark-gray-8);
-        color: var(--light-gray);
-        border-color: var(--border-1)
-    }
-
-    .mousehuntHeaderView-newsTicker .label {
-        color: var(--blue);
-    }
-
-    .mousehuntHeaderView-newsTicker a {
-        color: var(--blue);
-    }
-
-    /* Hud */
     .mousehuntHud-gameInfo {
-        background: var(--dark-gray-8);
-        color: var(--light-gray);
+        background-color: var(--background-primary);
+        color: var(--text-normal);
     }
 
     .mousehuntHud-gameInfo a {
-        color: var(--blue);
+        color: var(--text-link);
     }
 
-    /*
-    .mousehuntHud-top.hornReady {
-        background-image: none !important;
+    .mousehuntHeaderView-newsTicker .label {
+        color: var(--text-normal);
     }
-    
-    #mousehuntContainer.PageCamp {
-        background: none;
-        background-color: var(--dark-gray-16);
+
+    .mousehuntHeaderView-newsTicker a {
+        color: var(--text-link);
     }
-    */
-    /* Trap */
+
+    .mousehuntHeaderView-newsTicker {
+        background-color: var(--background-primary);
+        color: var(--text-normal);
+        border-color: var(--background-border);
+    }
+
+    .pageSidebarView {
+        background-color: var(--background-outer-secondary);
+        color: var(--text-normal);
+    }
+
+    .pageSidebarView .fb-page {
+        background-color: var(--background-outer);
+        color: var(--text-muted);
+        border-color: transparent;
+        height: auto;
+    }
+
+    .pageSidebarView-user {
+        border-color: var(--background-border);
+        color: var(--text-normal);
+    }
+
+    .mousehuntHeaderView .dropdownContent {
+        background-color: var(--background-floating);
+        border-color: var(--background-border);
+        color: var(--text-normal);
+    }
+
+    .mousehuntHeaderView .dropdownContent a,
+    .mousehuntHeaderView .dropdownContent a span {
+        color: var(--text-normal);
+        border-color: var(--background-border);
+    }
+
+    .scoreboardRelativeRankingTableView-table tr.highlight {
+        background-color: var(--background-accent);
+    }
+
+    .scoreboardRelativeRankingTableView-table {
+        border: none;
+        color: var(--text-normal);
+    }
+
+    /*** Camp ***/
     .campPage-trap {
-        background: var(--dark-gray-8);
-        box-shadow: -1px -1px 1px var(--border-1) inset;
-    }
-
-    .campPage-trap-armedItem.bait {
-        background: var(--dark-gray-8);
-        border-color: var(--border-1);
-        box-shadow: -1px -1px 1px var(--border-1) inset;
-    }
-
-    .campPage-trap-baitLabel {
-        color: var(--light-gray);
-    }
-
-    .campPage-trap-baitDetails,
-    .campPage-trap-armedItem-skin-description {
-        color: var(--themed-text);
-        text-shadow: none;
+        background-color: var(--background-secondary);
+        border-color: var(--background-border);
+        box-shadow: none;
     }
 
     .campPage-trap .trapImageView {
-        background: var(--dark-gray-8);
-        border-color: var(--border-1);
-    }
-
-    .campPage-trap-armedItem-empty {
-        background: var(--dark-gray-8);
-        color: var(--themed-text);
-        box-shadow: none;
+        background-color: var(--background-trap);
+        border-color: var(--background-border);
     }
 
     .campPage-trap-armedItem {
-        border-color: var(--border-1);
         box-shadow: none;
+    }
+
+    .campPage-trap-armedItem.bait {
+        background-color: var(--background-primary);
+        border-color: var(--background-border);
+        box-shadow: none;
+    }
+
+    .campPage-trap-armedItem.bait .campPage-trap-armedItem-image {
+        border-color: var(--background-border);
     }
 
     .campPage-trap-armedItem .quantity span {
-        background-color: var(--dark-gray-8);
-        color: var(--themed-text);
+        background-color: var(--background-primary);
+        border-color: var(--background-border);
+        color: var(--text-normal);
         box-shadow: none;
     }
 
-    .campPage-trap-armedItem-image {
-        border-color: var(--border-1);
+    .campPage-trap-baitLabel {
+        color: var(--text-muted);
+    }
+
+    .campPage-trap-baitDetails {
+        color: var(--text-normal);
+        text-shadow: none;
     }
 
     .campPage-trap-armedItem.skin {
-        background: var(--dark-gray-8);
-        border-color: var(--border-1);
-        box-shadow: -1px -1px 1px var(--border-1) inset;
+        background-color: var(--background-primary);
+        border-color: var(--background-border);
+        box-shadow: none;
+    }
+
+    .campPage-trap-armedItem-empty {
+        background-color: var(--background-primary);
+        color: var(--text-muted);
+    }
+
+    .campPage-trap-armedItem-skin-description {
+        color: var(--text-normal);
     }
 
     .campPage-trap-armedItem-skin-description-content b {
-        color: var(--light-gray);
+        color: var(--text-muted);
+    }
+
+    .campPage-trap-armedItem.skin .campPage-trap-armedItem-skin-description-content span {
+        color: var(--text-normal);
+    }
+
+    .campPage-trap-armedItem-image {
+        border-color: var(--background-border);
+    }
+
+    .campPage-trap-armedItem.inactive {
+        background-color: var(--background-secondary);
+    }
+
+    .campPage-trap-armedItem.active {
+        box-shadow: -1px -1px 1px var(--background-secondary) inset,
+        2px 2px 8px var(--background-accent);
     }
 
     .campPage-trap-statsContainer {
-        background: var(--dark-gray-1);
-        box-shadow: 0 0 10px var(--dark-gray-4) inset;
+        box-shadow: none;
+        background-color: var(--background-accent);
     }
 
     .campPage-trap-itemStats {
-        background: var(--dark-gray-8);
-        color: var(--themed-text);
-        border-color: var(--border-1);
-        box-shadow: -1px -1px 2px var(--dark-gray-16) inset;
+        background-color: var(--background-secondary);
+        border-color: var(--background-border);
+        box-shadow: none;
     }
 
     .campPage-trap-trapStat .value {
-        background: var(--dark-gray-8);
-        border-color: var(--border-1);
-        color: var(--themed-text)
+        background-color: var(--background-primary);
+        border-color: var(--background-border);
+        color: var(--text-normal);
+    }
+
+    .campPage-trap-trapStat .math {
+        background-color: var(--background-floating);
+        color: var(--text-normal);
+        border-color: var(--background-border);
+        box-shadow: none;
+    }
+
+    .campPage-trap-trapStat .math .arrow {
+        border-color: var(--background-border) transparent transparent transparent;
+    }
+
+    .campPage-trap-trapStat .math .arrow span {
+        border-color: var(--background-floating) transparent transparent transparent;
     }
 
     .campPage-trap-trapEffectiveness {
-        background: var(--dark-gray-8);
-        border-color: var(--border-1);
+        background-color: var(--background-secondary);
+        border-color: var(--background-border);
         box-shadow: none;
-        color: var(--light-gray);
+        color: var(--text-muted);
     }
 
     .campPage-trap-trapEffectiveness span {
-        color: var(--themed-text);
+        color: var(--text-normal);
     }
 
-    .campPage-trap-friendContainer .label,
-    .campPage-trap-friendContainer-toggleFriendsButton {
-        color: var(--light-gray);
+    .campPage-trap-friendContainer .label {
+        color: var(--text-muted);
     }
 
     .campPage-trap-friendContainer span {
-        color: var(--themed-text);
+        color: var(--text-normal);
+    }
+
+    .campPage-trap-friendContainer-toggleFriendsButton {
+        color: var(--text-normal);
+    }
+
+    .campPage-trap-friendContainer-toggleFriendsButton-arrow {
+        border-color: var(--text-normal) transparent transparent transparent;
+    }
+
+    .campPage-trap-friendContainer.full .campPage-trap-friendContainer-toggleFriendsButton-arrow {
+        border-color: transparent transparent var(--text-normal) transparent;
     }
 
     .campPage-trap-friendList.full {
-        background: var(--bg-main);
-        box-shadow: 0 0 3px var(--border-1) inset;
-        color: var(--light-gray);
+        background-color: var(--background-primary);
+        color: var(--text-normal);
+        box-shadow: 0 0 3px var(--background-border) inset;
     }
 
     .campPage-trap-friendContainer-environment a {
-        color: var(--themed-text);
-    }
-
-    .campPage-trap-friendList.loading .campPage-trap-friendList-loading {
-        background: var(--bg-main) url(https://www.mousehuntgame.com/images/ui/loaders/mouse_loading_small.gif?asset_cache_version=2) 50% 50% no-repeat;
-        height: 100px
-    }
-
-    /* Blueprint Drawer */
-    .campPage-trap-blueprint-closeButton {
-        background: var(--bg-main);
-        color: var(--light-gray);
-        border-color: var(--blue-4);
-    }
-    .campPage-trap-itemBrowser-armed,
-    .campPage-trap-itemBrowser-itemContainer {
-        background: var(--dark-gray-8);
-        color: var(--themed-text);
-        border-color: var(--silver-0);
-        box-shadow: -1px -1px 2px var(--border-1) inset;
-    }
-
-    .campPage-trap-itemBrowser-tagGroup-name {
-        border-color: var(--silver-0);
-    }
-
-    .campPage-trap-itemBrowser-tagGroup-empty {
-        background: var(--bg-main);
-        border-color: var(--silver-0);
-    }
-    .campPage-trap-itemBrowser-armed-item {
-        background: var(--bg-main);
-        border-color: var(--border-1);
-    }
-
-    .campPage-trap-itemBrowser-item {
-        background: var(--bg-main);
-    }
-
-    .campPage-trap-itemBrowser-items {
-        color: var(--themed-text);
-    }
-
-    .campPage-trap-itemBrowser-items .loading,
-    .campPage-trap-itemBrowser-items .emptyFilters {
-        background: var(--bg-main);
-        border-color: var(--border-1);
-    }
-
-    .campPage-trap-itemBrowser-armed-item {
-        background: var(--bg-main);
-        border-color: var(--border-1);
-    }
-
-    .campPage-trap-itemBrowser-armed-label {
-        color: var(--themed-text);
-    }
-
-    .campPage-trap-itemBrowser-armed-item-image-frame {
-        border-color: var(--border-1);
-        box-shadow: 2px 2px 3px var(--gray-4) inset;
-    }
-
-    .campPage-trap-itemBrowser-item-statContainer {
-        background: var(--bg-main);
-        box-shadow: 0 0 1px var(--white), 0 1px 30px var(--bg-main) inset;
-    }
-
-    .campPage-trap-itemBrowser-favorites {
-        background: var(--dark-gray-5);
-    }
-
-    .campPage-trap-itemBrowser-favorite-item-image-frame {
-        box-shadow: 2px 2px 3px var(--bg-main) inset;
-    }
-
-    .campPage-trap-itemBrowser-item-stat .value span {
-        color: var(--themed-text);
-    }
-
-    /* End Blueprint Drawer */
-    /* Journal */
-    .campPage-tabs-tabContentContainer {
-        background: var(--dark-gray-8);
-        border-color: var(--border-1);
-        box-shadow: 0 0 2px 2px var(--border-1);
+        color: var(--text-link);
     }
 
     .campPage-tabs-tabHeader span {
-        color: var(--light-gray);
-        background: var(--dark-gray-8);
-        border-color: var(--border-1);
-        box-shadow: -1px -1px 1px var(--border-1);
+        background-color: var(--background-secondary);
+        color: var(--text-normal);
+        border-color: var(--background-border);
+        box-shadow: none;
+    }
+
+    .campPage-tabs-tabHeader.active span {
+        background-color: var(--background-primary);
+        border-bottom-color: var(--background-primary);
     }
 
     .campPage-tabs-tabRow:hover .campPage-tabs-tabHeader span {
-        border-bottom-color: var(--border-1);
+        border-bottom-color: var(--background-border);
+        background-color: var(--background-secondary);
     }
 
-    .campPage-tabs-tabHeader.active span,
     .campPage-tabs-tabRow .campPage-tabs-tabHeader:hover span {
-        border-bottom-color: var(--dark-gray-8);
+        border-bottom-color: var(--background-primary);
+        background-color: var(--background-primary);
     }
 
-    .campPage-tabs-tabContent[data-tab=journal] {
-        background: var(--dark-gray-8);
+    .campPage-tabs-tabContentContainer {
+        background-color: var(--background-primary);
+        box-shadow: none;
+        border-color: var(--background-border);
+    }
+
+    .campPage-tabs-tabContent[data-tab='journal'] {
+        background-color: var(--background-primary);
     }
 
     .adventureBookBanner-adventureName {
-        background: var(--dark-gray-8);
-        color: var(--light-gray);
+        background-color: var(--background-primary);
+        color: var(--text-normal);
     }
 
-    /* Journal entries */
-    /*
-    .journal .entry .journalbody
-    {
-        color: var(--light-gray);
-    }
-    
-    .journal .content .catchsuccessloot {
-        background-color: rgb(75, 75, 0);
-    }
-    */
-    /* #region Inventory */
-    .mousehuntHud-page-tabHeader span {
-        background: var(--dark-gray-2);
-        border-bottom-color: var(--border-1);
-        color: var(--light-gray);
-        box-shadow: 1px 1px 1px var(--dark-gray-2) inset;
+    .journal-detailLinkContainer a {
+        color: var(--text-link);
     }
 
-    .mousehuntHud-page-tabHeader.active span,
-    .mousehuntHud-page-tabHeader:hover span {
-        border-bottom-color: var(--border-1);
+    /*** Trap Selector ***/
+    .campPage-trap-itemBrowser-favorite-item-image-quantity {
+        color: var(--text-contrast);
     }
 
-    .mousehuntHud-page-tabHeader.active span {
-        border-color: var(--dark-gray-2)
+    .campPage-trap-itemBrowser-item-powerType:after {
+        color: var(--text-normal);
     }
 
-    .mousehuntHud-page-tabContent-loading,
-    .mousehuntHud-page-subTabContent-loading {
-        background: url(https://www.mousehuntgame.com/images/ui/loaders/mouse_loading_large.gif?asset_cache_version=2) 50% 50% no-repeat, var(--gray-0);
+    .cannotDisarm .campPage-trap-itemBrowser-item-armButton {
+        color: var(--hg-default-black);
     }
 
-    .mousehuntHud-page-subTabContent a {
-        color: var(--blue);
+    .armed .campPage-trap-itemBrowser-item-armButton {
+        color: var(--hg-default-white);
     }
 
-    .mousehuntHud-page-subTabContent,
+    .campPage-trap-itemBrowser-armed-item-content .campPage-trap-itemBrowser-item-disarmButton {
+        color: var(--hg-default-white);
+    }
+
+    .campPage-trap-itemBrowser-armed-label {
+        color: var(--text-normal);
+    }
+
+    .campPage-trap-itemBrowser-tagGroup-name {
+        color: var(--text-normal);
+        border-color: var(--background-border);
+    }
+
+    .campPage-trap-itemBrowser-tagGroup-empty {
+        background-color: var(--background-primary);
+        border-color: var(--background-border);
+        color: var(--text-normal);
+    }
+
+    .empty .campPage-trap-itemBrowser-favorite-item-image {
+        background-color: var(--background-primary);
+    }
+
+    .campPage-trap-itemBrowser-favorite-item-image-frame {
+        box-shadow: none;
+        border-color: var(--background-border);
+    }
+
+    .campPage-trap-itemBrowser-armed,
+    .campPage-trap-itemBrowser-itemContainer,
+    .campPage-trap-itemBrowser-favorites {
+        background-color: var(--background-secondary);
+        border-color: var(--background-border);
+        color: var(--text-normal);
+        box-shadow: none;
+    }
+
+    .campPage-trap-itemBrowser-armed-item,
+    .campPage-trap-itemBrowser-item {
+        background-color: var(--background-primary);
+        color: var(--text-normal);
+        border-color: var(--background-border);
+    }
+
+    .campPage-trap-itemBrowser-item-statContainer {
+        border-radius: 5px;
+    }
+
+    .campPage-trap-itemBrowser-item-stat .value span {
+        color: var(--text-normal);
+    }
+
+    .campPage-trap-itemBrowser-item-stat {
+        background-color: var(--background-secondary);
+    }
+
+    .campPage-trap-itemBrowser-item-stat.worse .value span {
+        color: var(--text-danger);
+    }
+
+    .campPage-trap-itemBrowser-item-stat.better .value span {
+        color: var(--text-positive);
+    }
+
+    .campPage-trap-trapEffectivenessContainer {
+        background-color: var(--background-secondary);
+    }
+
+    .campPage-trap-trapEffectiveness-header {
+        color: var(--text-normal);
+    }
+
+    .campPage-trap-trapEffectiveness-difficultyGroup-label {
+        border-color: var(--background-border);
+    }
+
+    .campPage-trap-trapEffectiveness-difficultyGroup {
+        background-color: var(--background-primary);
+        border-color: var(--background-border);
+        color: var(--text-normal);
+    }
+
+    .campPage-trap-trapEffectiveness-mouse {
+        border-color: var(--background-border);
+        color: var(--text-normal);
+    }
+
+    .campPage-trap-trapEffectiveness-mouse:hover {
+        background-color: var(--background-accent);
+    }
+
+    .campPage-trap-blueprint-closeButton {
+        background-color: var(--background-secondary);
+        color: var(--text-normal);
+    }
+
+    .campPage-quests-container {
+        background-color: var(--background-secondary);
+        box-shadow: none;
+        border-color: var(--background-border);
+        color: var(--text-normal);
+    }
+
+    .campPage-quests-title {
+        color: var(--text-normal);
+    }
+
+    .campPage-quests-objective-container {
+        border-color: var(--background-border);
+        background-color: var(--background-primary);
+    }
+
+    .campPage-quests-objective-container.complete {
+        border-color: var(--text-positive);
+        background: #606d5e
+    }
+
+    .campPage-quests-objective-progressBar {
+        border-color: var(--background-border);
+        background-color: var(--background-accent);
+        box-shadow: none;
+    }
+
+    .campPage-quests-objective-progressBar span {
+        background: #c4b200;
+        box-shadow: none;
+    }
+
+    .campPage-quests-footer-smash {
+        background-color: var(--background-primary);
+        border-color: var(--background-border);
+        box-shadow: none;
+        color: var(--text-normal);
+    }
+
+    .campPage-quests-footer-smash > div {
+        filter: invert(1);
+    }
+
+    .campPage-quests-footer-lny {
+        color: red
+    }
+
+    .campPage-quests-objective-container.locked {
+        box-shadow: none;
+    }
+
+    .campPage-tabs-tabContent-larryTip-container {
+        background-color: var(--background-secondary);
+        box-shadow: none;
+        border-color: var(--background-border);
+        color: var(--text-normal);
+    }
+
+    .campPage-tabs-tabContent-larryTip-container a {
+        color: var(--text-link);
+    }
+
+    .campPage-tabs-tabContent-larryTip-environment {
+        color: var(--text-muted);
+    }
+
+    /*** Journal ***/
+    .journal .content {
+        padding: 0 7px 0 10px;
+    }
+
+    .journal .entry {
+        color: var(--hg-default-grey);
+    }
+
+    /*** Common/Pagination ***/
+    .travelPage-map-pieces-row {
+        background-color: var(--hg-default-white);
+    }
+
+    .mousehuntPage-content input[type='text'],
+    .mousehuntPage-content input[type='password'],
+    .mousehuntPage-content select,
+    .mousehuntPage-content textarea {
+        background-color: var(--background-primary);
+        border-color: var(--background-accent);
+        color: var(--text-normal);
+    }
+
     .mousehuntHud-page-subTabHeader-container {
-        color: var(--light-gray);
+        color: var(--text-normal);
     }
 
     .mousehuntHud-page-subTabHeader span {
-        background-color: var(--dark-gray-4);
-        color: var(--themed-text);
-        border-color: var(--border-1);
-        box-shadow: 1px 1px 1px var(--gray-1) inset;
-    }
-
-    .mousehuntHud-page-subTabHeader-container .mousehuntHud-page-subTabHeader:last-child span {
-        border-right-color: var(--border-1);
+        background-color: var(--background-primary);
+        border-color: var(--background-border);
+        color: var(--text-normal);
+        box-shadow: none;
     }
 
     .mousehuntHud-page-subTabHeader.active span,
     .mousehuntHud-page-subTabHeader:hover span {
-        background-color: var(--dark-gray-24);
+        background-color: var(--background-accent);
+    }
+
+    .mousehuntHud-page-tabHeader span {
+        background-color: var(--background-secondary);
+        box-shadow: none;
+        border-color: var(--background-border);
+        color: var(--text-normal);
+    }
+
+    .mousehuntHud-page-tabHeader.active span,
+    .mousehuntHud-page-tabHeader:hover span {
+        border-color: var(--background-border);
+        background-color: var(--background-primary);
+    }
+
+    .mousehuntHud-page-subTabHeader-container .mousehuntHud-page-subTabHeader:last-child span {
+        border-right-color: var(--background-accent);
     }
 
     .mousehuntHud-page-subTabHeader.empty span,
     .mousehuntHud-page-subTabHeader.empty:hover span {
-        background-color: var(--black);
-        box-shadow: 1px 1px 1px var(--silver-0) inset;
-    }
-
-    .mousehuntHud-page-subTabContent-prefix-title {
-        color: var(--light-gray);
-        text-shadow: 0 1px 0 var(--black);
-    }
-
-    .mousehuntHud-page-subTabContent-prefix-filter-option {
-        background-color: var(--bg-main);
-    }
-
-    .mousehuntHud-page-subTabContent-prefix-filter-option.active {
-        background-color: var(--blue-1);
-        color: var(--light-gray);
-    }
-
-    .inventoryPage-shieldExpiry {
-        background-color: var(--yellow-0);
-    }
-
-    .inventoryPage-tagDirectory-tag {
-        background: var(--dark-gray-8);
-    }
-
-    .inventoryPage-tagDirectory-searchBar {
-        color: var(--light-gray);
-    }
-
-    .inventoryPage-tagDirectory-searchBar > input {
-        background: var(--black);
-        border: var(--border-1);
-        color: var(--light-gray);
-    }
-
-    .inventoryPage-tagContent-tagTitle {
-        color: var(--light-gray);
-        border-bottom-color: var(--silver-1);
-    }
-
-    .inventoryPage-item-name {
-        background-color: var(--dark-gray-8);
-        border-bottom-color: var(--silver-1);
-    }
-    .inventoryPage-item.small,
-    .inventoryPage-item-margin {
-        border-color: var(--border-1) !important;
-    }
-
-    .inventoryPage-item.small .tooltip {
-        background: var(--bg-main);
-        border-color: var(--border-1);
-    }
-
-    .inventoryPage-item-larryLexicon {
-        background-color: var(--gray-4);
-        border-color: var(--gray-8);
-    }
-
-    .inventoryPage-item-content-nameContainer {
-        color: var(--light-gray);
-    }
-
-    /* Inventory - Traps Tab */
-    .inventoryPage-item.component .inventoryPage-item-imageContainer .itemImage {
-        border-color: var(--dark-gray-24);
-    }
-
-    .itemViewStatBlock-stat-label {
-        background-color: var(--dark-gray-6);
-    }
-
-    .itemViewStatBlock-stat-helper {
-        background-color: var(--dark-gray-1);
-        color: var(--light-gray);
-    }
-
-    .itemViewStatBlock-stat-value {
-        background-color: var(--dark-gray-2);
-    }
-
-    .itemViewStatBlock-stat.error .itemViewStatBlock-stat-value {
-        background-color: var(--red-1)
-    }
-
-    /* Inventory - Crafting */
-    .mousehuntHud-page-tabContent.crafting .mousehuntHud-page-subTabContent {
-        background-color: var(--dark-gray-8);
-        border-color: var(--border-1);
-        box-shadow: 2px 2px 5px var(--border-1) inset;
-    }
-
-    .mousehuntHud-page-tabContent.crafting .mousehuntHud-page-subTabContent-margin {
-        background-color: var(--bg-main);
-        border-color: var(--gray-8);
-        box-shadow: 0 0 2px 2px var(--gray-6) inset;
-    }
-
-    .inventoryPage-item.recipe.disabled {
-        background: var(--dark-gray-8);
-    }
-
-    .inventoryPage-item-content-description-consumedItem.error {
-        color: var(--red-6);
-    }
-
-    .mousehuntHud-page-tabContent .itemImage .quantity {
-        background: var(--bg-main);
-    }
-
-    .mousehuntHud-page-subTabContent.crafting_table .inventoryPage-craftingTable {
-        background: var(--bg-main);
-        border-color: var(--border-1);
-    }
-
-    .inventoryPage-craftingTable-title {
-        color: var(--light-gray);
-    }
-
-    .inventoryPage-craftingTable-slot-item.empty .inventoryPage-craftingTable-slot-item-name {
-        color: var(--light-gray);
-    }
-
-    .inventoryPage-craftingTable-slot-item.empty .itemImage {
-        box-shadow: 2px 2px 4px var(--black) inset;
-    }
-
-    .inventoryPage-item-recipeOptions li {
-        border-color: var(--border-1);
-    }
-
-    /* #endregion Inventory */
-    /* #region Shop */
-    .itemPurchaseView-container {
-        border-color: var(--border-1);
-    }
-    .itemPurchaseView-action-container {
-        background: var(--gray-0);
-        border-left-color: var(--border-1);
-    }
-
-    .itemPurchaseView-action-itemCost-table {
-        background: var(--bg-main);
-        border-color: var(--border-1) !important;
-    }
-
-    .itemPurchaseView-action-itemCost-table-cell.owned {
-        color: var(--light-gray);
-    }
-
-    .itemPurchaseView-action-quantity input {
-        background: var(--bg-main);
-        color: var(--light-gray);
-        border-color: var(--border-1) !important;
-    }
-
-    .shopsPage-compareEquipment {
-        background: var(--teal-1);
-    }
-
-    .itemPurchaseView-container.donation .itemPurchaseView-action-container {
-        background-color: var(--yellow-1);
-    }
-
-    .itemPurchaseView-container.kingsCartItem .itemPurchaseView-content-details:after {
-        box-shadow: 0 -5px 10px var(--bg-main) inset;
-    }
-
-    .itemPurchaseView-container.kingsCartItem .itemPurchaseView-action-container {
-        background: var(--blue-0);
-        box-shadow: -1px 2px 18px var(--bg-main) inset;
-    }
-    /* #endregion Shop */
-    /* #region Mice */
-    .mouseListView-categoryDirectory {
-        border-right-color: var(--blue-5);
-    }
-    .mouseListView-categoryContent:before {
-        background: var(--blue-5);
-    }
-
-    .mouseListView-categoryContent-category {
-        background: var(--bg-main);
-    }
-
-    .mouseListView-categoryContent-name {
-        color: var(--blue-5);
-    }
-
-    .mouseListView-categoryContent-filter-option {
-        background: var(--bg-main);
-    }
-
-    .mouseListView-categoryContent-weaknessesContainer {
-        background: var(--gray-4);
-        border: var(--border-1);
-    }
-
-    .mouseListView-categoryContent-subgroup-name {
-        background: var(--gray-4);
-    }
-
-    .mouseListView-categoryContent-subgroup-mouse-margin {
-        box-shadow: 0 0 1px var(--silver-1) inset;
-    }
-
-    .mouseListView-categoryContent-subgroup-mouse.stats.header {
-        background: var(--gray-4) !important;
-    }
-
-    .mouseListView-categoryContent-subgroup-mouse.stats:nth-child(odd) {
-        background: var(--dark-gray-8);
-    }
-
-    .mouseListView-categoryContent-category.all .mouseListView-categoryContent-filter-option.all,
-    .mouseListView-categoryContent-category.caught .mouseListView-categoryContent-filter-option.caught,
-    .mouseListView-categoryContent-category.uncaught .mouseListView-categoryContent-filter-option.uncaught {
-        background: var(--blue-5);
-        color: var(--black);
-    }
-    /* #endregion Mice */
-    /* #region Friends */
-    .friendsPage-friendRow {
-        border-color: var(--silver-1);
-        color: var(--themed-text);
-        background: linear-gradient(var(--gray-3) 5%, var(--gray-1) 50%);
-    }
-
-    .friendsPage-friendRow a {
-        color: var(--blue-1);
-    }
-
-
-    .friendsPage-friendRow-statsContainer {
-        box-shadow: 0 10px 30px var(--gray-5) inset;
-    }
-
-    .friendsPage-friendRow-stat span,
-    .friendsPage-friendRow-stat a {
-        color: var(--white);
-    }
-
-    .friendsPage-subduedLink {
-        background-color: var(--gray-3);
+        background-color: var(--background-secondary);
+        box-shadow: none;
     }
 
     .pagerView-container {
-        background-color: var(--gray-4);
+        background-color: var(--background-primary);
+        color: var(--text-normal);
     }
 
     .pagerView-section.previous .pagerView-link,
     .pagerView-section.next .pagerView-link {
-        color: var(--silver-1);
+        color: var(--text-muted);
+        border-color: var(--background-border);
     }
 
     .pagerView-section.previous.active .pagerView-link,
     .pagerView-section.next.active .pagerView-link {
-        color: var(--white);
+        color: var(--text-link);
+        border-color: var(--background-border);
     }
 
-    /* GOTD */
-    #giftSelectorView-inbox {
-        background: var(--bg-main);
-        color: var(--primary-text);
+    .mousehuntPage-content input[type='submit'],
+    .mousehuntPage-content input[type='button'] {
+        border-color: var(--background-border);
     }
 
-    #giftSelectorView-inbox a {
-        color: var(--blue);
+    #overlayBg {
+        background-image: none;
+        background-color: rgb(0, 0, 0, 0.3);
     }
 
-    .giftSelectorView-inboxHeader {
-        background: var(--dark-gray-8);
+    #mousehuntContainer.PageDraw .mousehuntHud-page-tabContentContainer {
+        background-color: var(--hg-default-white);
     }
 
-    .giftSelectorView-inboxGiftOfTheDay-label,
-    .giftSelectorView-inboxGiftOfTheDay abbr {
-        color: var(--light-gray);
+    .mousehuntHud-page-tabContent-loading,
+    .mousehuntHud-page-subTabContent-loading,
+    .campPage-trap-trapEffectivenessContainer .loading,
+    .campPage-trap-itemBrowser-armed .loading,
+    .campPage-trap-itemBrowser-items .loading,
+    .campPage-tabs-tabContent-loading,
+    .campPage-trap-friendList.loading .campPage-trap-friendList-loading {
+        filter: brightness(var(--loader-brightness));
     }
 
-    .giftSelectorView-inbox-giftRow {
-        border-bottom-color: var(--border-1);
-    }
-
-    #giftSelectorView-inbox span {
-        text-shadow: none;
-    }
-
-    .giftSelectorView-inbox-gift-sent {
-        color: var(--secondary-text);
-    }
-    /*
-    #giftSelectorView-inbox .mousehuntActionButton {
-        background: var(--yellow-3);
-        box-shadow: 1px 1px 1px var(--bg-main);
-        color: var(--light-gray) !important;
-        border: var(--border-1);
-    }
-
-    #giftSelectorView-inbox .mousehuntActionButton:before {
-        background: var(--yellow-2);
-        box-shadow: 1px 1px 1px var(--bg-main);
-    }
-
-    #giftSelectorView-inbox .mousehuntActionButton:hover {
-        background: var(--yellow-3);
-        box-shadow: 0 0 5px var(--bg-main) inset, 1px 1px 1px var(--bg-main);
-    }
-
-    #giftSelectorView-inbox .mousehuntActionButton:hover:before {
-        background: var(--yellow-3);
-    }
-
-    #giftSelectorView-inbox .mousehuntActionButton.cancel,
-    #giftSelectorView-inbox .mousehuntActionButton.disabled {
-        background-color: var(--gray-5) !important;
-    }
-
-    #giftSelectorView-inbox .mousehuntActionButton.cancel:before,
-    #giftSelectorView-inbox .mousehuntActionButton.diabled:before {
-        background-color: var(--gray-8) !important;
-    }
-    */
-    .giftSelectorView-inbox-giftRow:nth-child(even) {
-        background: var(--dark-gray-8);
-    }
-
-    .giftSelectorView {
-        color: var(--light-gray);
-    }
-
-    .giftSelectorView a {
-        color: var(--blue);
-    }
-
-    .giftSelectorView-headerContainer {
-        background-color: var(--black);
-    }
-    .giftSelectorView-tabHeader span {
-        background: var(--gray-4);
-        color: var(--light-gray);
-    }
-
-    .giftSelectorView-tabHeader:hover span,
-    .giftSelectorView-tabHeader.active span {
-        background: var(--bg-main);
-        color: var(--light-gray);
-    }
-
-    .giftSelectorView-tabContent {
-        background-color: var(--silver-0)
-    }
-
-    .giftSelectorView-content-subtitle {
-        border-bottom-color: var(--border-1);
-    }
-
-    .giftSelectorView-content-leftBar-highlightBlock {
-        background: var(--bg-main);
-    }
-
-    .giftSelectorView-content-rightBar {
-        background: var(--bg-main);
-    }
-
-    .giftSelectorView-claimableGift.accordion_disabled:after,
-    .giftSelectorView-claimableGift.expanded:after {
-        box-shadow: 0 -1px 1px var(--border-1) inset;
-    }
-
-    .giftSelectorView-friendRow:hover {
-        box-shadow: 0 0 1px var(--white) inset;
-    }
-
-    .giftSelectorView-friendRow-action.claim,
-    .giftSelectorView-friendRow-action.return {
-        background: var(--dark-gray-8);
-        box-shadow: 0 0 1px var(--white) inset, 0 3px 1px var(--bg-main) inset;
-    }
-
-    .giftSelectorView-friendRow-action.selected,
-    .giftSelectorView-friend.selected .giftSelectorView-friendRow-action {
-        background: var(--blue-1);
-        box-shadow: 0 0 1px var(--white) inset, 0 3px 1px var(--blue-2) inset;
-    }
-
-    .giftSelectorView-friendRow-action.ignore {
-        background: var(--bg-main);
-        box-shadow: 0 0 1px var(--border-1) inset;
-    }
-
-    .giftSelectorView-inbox-footer {
-        background: var(--dark-gray-8);
-        border-top-color: var(--border-1);
-    }
-
-    .giftSelectorView-inbox-footer-viewMore a {
-        background: var(--bg-main);
-    }
-
-    .giftSelectorView-actionContainer {
-        background: var(--blue-0);
-    }
-
-    .giftSelectorView-gift-padding {
-        background-color: var(--bg-main);
-        box-shadow: 0 0 1px var(--white) inset;
-    }
-
-    .giftSelectorView-friend-sent {
-        color: var(--silver-2);
-    }
-
-    .giftSelectorView-friend-padding,
-    .giftSelectorView-confirmPopup-block-actionItem .giftSelectorView-friend:hover .giftSelectorView-friend-padding {
-        background-color: var(--bg-main);
-        box-shadow: 0 0 1px var(--white) inset;
-    }
-
-    .giftSelectorView-friend.selected .giftSelectorView-friend-padding,
-    .giftSelectorView-friend-returnGift.selected .giftSelectorView-friend-padding {
-        background-color: var(--blue-0);
-    }
-
-    .giftSelectorView-friend.favorite .giftSelectorView-friend-padding {
-        box-shadow: 0 0 3px var(--yellow-2) inset;
-    }
-
-    .giftSelectorView-friend.complete .giftSelectorView-friend-padding {
-        background-color: var(--green-1);
-    }
-
-    .giftSelectorView-friend.complete .giftSelectorView-friend-padding:after {
-        background-color: var(--green-0);
-        color: var(--light-gray);
-        border-color: var(--green-2);
-    }
-
-    .giftSelectorView-confirmPopup-content {
-        background: var(--bg-main);
-    }
-
-    .giftSelectorView-confirmPopup-padding {
-        background-color: var(--blue-0);
-        border-color: var(--blue-0);
-        box-shadow: 0 0 10px var(--black);
-    }
-
-    .tournamentPage-tournamentHeading {
-        color: var(--light-gray);
-    }
-
-    .tournamentPage-container .mousehuntTabHeader.active span {
-        background: var(--dark-gray-4);
-    }
-
-    .tournamentPage-container .mousehuntTabHeader span {
-        color: var(--light-gray);
-        background: var(--dark-gray-8);
-        text-shadow: none;
-        box-shadow: 1px 1px 1px var(--bg-main);
-        border-bottom-color: var(--border-1);
-    }
-
-    .tournamentPage-container .mousehuntTabContentContainer {
-        background: var(--dark-gray-4);
-        border-color: var(--border-1);
-        box-shadow: 1px 1px 1px var(--bg-main) inset;
-    }
-
-    .mousehuntTabContentContainer-padding {
-        background: var(--bg-main);
-        border-color: var(--border-1);
-        box-shadow: 0 0 2px 2px var(--border-1) inset;
-    }
-
-    .tournamentPage-tournamentRow {
-        color: var(--light-gray);
-    }
-
-    .tournamentPage-tournament-column {
-        color: var(--light-gray);
-    }
-
-    .tournamentPage-tournament-column.label {
-        color: var(--orange-2);
-    }
-
-    .tournamentPage-tournamentRow:hover:before {
-        box-shadow: 0 0 10px var(--black) inset;
-    }
-
-    /* #endregion Friends */
-    /* #region Marketplace */
-    .marketplaceView-header-tabHeader {
-        color: var(--light-gray);
-        background: var(--dark-gray-16)
-    }
-
-    .marketplaceView-header-tabHeader:hover,
-    .marketplaceView-header-tabHeader.active {
-        background: var(--bg-main);
-    }
-
-    .marketplaceView .marketplaceContentContainer {
-        background: var(--bg-main);
-    }
-
-    .marketplaceHome-blockMenu.active,
-    .marketplaceHome-blockMenu:hover {
-        color: var(--white);
-    }
-
-    .marketplaceHome-blockMenu {
-        color: var(--silver-0);
-        border-bottom-color: var(--bg-main);
-    }
-
-    .marketplaceHome-blockItem,
-    .marketplaceHome-blockItem-value {
-        color: var(--light-gray);
-    }
-
-    .marketplaceHome-block-carousel .marketplaceHome-block-viewAll {
-        color: var(--light-gray);
-    }
-
-    .marketplaceHome-block-viewAll:hover {
-        background-color: var(--black);
-        color: var(--light-gray);
-    }
-
-    .marketplaceView {
-        color: var(--light-gray);
-    }
-
-    .marketplaceView h1 {
-        color: var(--light-gray);
-        border-bottom-color: var(--light-gray);
-    }
-
-    .marketplaceView-table tr.empty {
-        background: var(--bg-main) !important;
-    }
-
-    .marketplaceView-table tr:nth-child(odd) {
-        background: var(--bg-main);
-        color: var(--light-gray);
-    }
-
-    .marketplaceView-table tr:nth-child(even) {
-        background: var(--dark-gray-8);
-        color: var(--light-gray);
-    }
-
-    .marketplaceView-trendContainer {
-        background: var(--bg-main);
-        border-color: var(--border-1);
-    }
-
-    .marketplaceView-trendDifference {
-        color: var(--light-gray);
-    }
-
-    .marketplaceView-table-name a,
-    .marketplaceView-table-name a:hover {
-        color: var(--light-gray);
-    }
-
-    .marketplaceView-browse-sidebar-link {
-        background: var(--dark-gray-16);
-        color: var(--light-gray);
-    }
-
-    .marketplaceContentContainer label {
-        color: var(--light-gray);
-    }
-
-    .marketplaceHome-block-viewAll {
-        color: var(--light-gray);
-    }
-
-    .marketplaceView-item-quickListings th {
-        color: var(--light-gray);
-    }
-
-    .marketplaceView-item-quickListings a.marketplaceView-goldValue {
-        color: var(--light-gray);
-    }
-
-    .marketplaceView .mousehuntCharacterGuideBox-content {
-        background-color: var(--gray-3);
-    }
-
-    .marketplaceView-moreLink {
-        border-color: var(--border-1);
-        color: var(--light-gray);
-    }
-
-    .marketplaceView-moreLink:hover {
-        background-color: var(--dark-gray-2);
-        color: var(--light-gray);
-    }
-
-    /* #endregion Marketplace */
-    /* #region Inbox */
+    /*** Inbox ***/
     #messengerUINotification {
-        background: var(--bg-main) !important;
-        border-color: var(--border-1);
-        color: var(--light-gray);
-    }
-
-    #messengerUINotification a {
-        color: var(--blue);
-    }
-
-    #messengerUINotification .messengerUINotificationClose {
-        background: var(--bg-main);
-        border-color: var(--border-1);
-    }
-
-
-
-    #messengerUINotification .notificationHeader {
-        background: var(--black);
+        background-color: var(--background-primary) !important;
+        border-color: var(--background-border);
     }
 
     #messengerUINotification .notificationMessageList {
-        border-left-color: var(--silver-1);
+        border-color: var(--background-border);
+    }
+
+    .notificationMessageList .message {
+        border-color: var(--background-border);
+        color: var(--text-normal);
+    }
+
+    .notificationMessageList .message a {
+        color: var(--text-link);
+    }
+
+    .notificationMessageList .message .date {
+        color: var(--text-muted);
+    }
+
+    .notificationMessageList .message:nth-child(2n + 1) {
+        background-color: var(--background-secondary);
+    }
+
+    .notificationMessageList .message:nth-child(2n) {
+        background-color: var(--background-primary);
+    }
+
+    .notificationMessageList .message img.item {
+        border-color: var(--background-border);
     }
 
     #messengerUINotification .tabs a,
     #messengerUINotification .tabs a:hover,
     #messengerUINotification .tabs a:visited {
-        background: var(--gray-3);
-        color: var(--light-gray) !important;
-        border-bottom-color: var(--silver-1);
-    }
-
-    #messengerUINotification .tabs a:hover {
-        background-color: var(--blue-1);
-    }
-
-    #messengerUINotification .tabs a.active .arrow {
-        border-left-color: var(--bg-main);
+        background-color: var(--background-secondary);
+        border-color: var(--background-border);
+        color: var(--text-normal);
     }
 
     #messengerUINotification .tabs a.active {
-        background: var(--bg-main);
+        background-color: var(--background-primary);
     }
 
-    .notificationMessageList .message {
-        border-bottom-color: var(--silver-1);
+    #messengerUINotification .tabs a.active .arrow {
+        border-color: transparent transparent transparent var(--background-primary);
     }
 
-    .notificationMessageList .message:nth-child(2n) {
-        background: var(--bg-main);
+    #messengerUINotification .notificationHeader {
+        background-color: var(--background-secondary);
     }
 
-    .notificationMessageList .message:nth-child(2n+1) {
-        background: var(--gray-5);
+    /*** Gift Dropdown ***/
+    #giftSelectorView-inbox {
+        color: var(--text-normal);
+        background-color: var(--background-primary);
+        border-color: var(--background-border);
     }
 
-    .notificationMessageList .message .date {
-        color: var(--light-gray) !important;
+    #giftSelectorView-inbox a {
+        color: var(--text-link);
     }
 
-    /* #endregion Inbox */
-    /* #region Premium Shoppe */
-    .MHCheckoutRootView .mousehuntTooltip {
-        background-color: var(--bg-main);
-        color: var(--white);
-        box-shadow: 2px 3px 4px var(--silver-0);
-        border-color: var(--white);
+    #giftSelectorView-inbox .mousehuntActionButton {
+        box-shadow: none;
     }
 
-    .MHCheckoutRootView {
-        color: var(--primary-text);
-        background-color: var(--bg-main);
-    }
-    
-    .MHCheckoutRootView-header {
-        background: #11263b;
-        box-shadow: 5px 5px 100px #11263b inset;
-    }
-    
-    .MHCheckoutRootView-header-block {
-        background-color: var(--bg-main);
-    }
-    
-    .MHCheckoutCartView-header-totalCost {
-        background-color: var(--dark-gray-8);
-    }
-    
-    .MHCheckoutRootView-header-block-dropdown {
-        background: var(--bg-main);
-        color: var(--primary-text);
-    }
-    
-    .MHCheckoutCartView-reward {
-        color: var(--primary-text);
-    }
-    
-    .MHCheckoutCartView-reward:hover {
-        background-color: var(--dark-gray-16);
+    .giftSelectorView-inbox-footer,
+    .giftSelectorView-inboxHeader {
+        color: var(--text-normal);
+        background-color: var(--background-secondary);
+        border-color: var(--background-border);
     }
 
-    .MHCheckoutRootView-pageContainer {
-        background-color: var(--bg-main);
+    .giftSelectorView-inbox-footer-viewMore a {
+        background-color: var(--background-accent);
     }
 
-    .MHCheckout-goldenShield-small {
-        background: var(--bg-main);
-        box-shadow: 0 0 10px #000111 inset, 0 17px 13px var(--black) inset;
+    .giftSelectorView-inboxGiftOfTheDay-label {
+        color: var(--text-normal);
+        margin-right: 4px;
     }
 
-    .MHCheckoutTooltipView-item {
-        color: var(--secondary-text);
+    .giftSelectorView-inboxHeader-closeButton:hover {
+        background-color: var(--background-accent);
     }
 
-    .MHCheckoutRootView-page-content.loading {
-        background: var(--bg-main) url(https://www.mousehuntgame.com/images/ui/loaders/mouse_loading_large.gif?asset_cache_version=2) 50% 50% no-repeat
+    .giftSelectorView-inbox-gift-sent {
+        color: var(--text-muted);
     }
 
-    .MHCheckout-title {
-        color: var(--primary-text);
+    .giftSelectorView-inbox-giftRow {
+        border-color: var(--background-border);
     }
 
-    .MHCheckoutRootView-categoryContainer a {
-        color: var(--blue);
+    .giftSelectorView-inbox-giftRow:nth-child(even):not(.complete) {
+        background-color: var(--background-secondary);
     }
 
-    .MHCheckoutRootView-category {
-        background: var(--dark-gray-8);
-        border: 1px solid var(--white);
+    .giftSelectorView-inbox-giftRow.complete {
+        color: var(--hg-default-grey);
     }
 
-    .MHCheckoutRootView-category.disabled {
-        color: var(--red)!important
+    /*** Settings ***/
+    .personal_info,
+    .game_settings {
+        color: var(--text-normal);
     }
 
-    .MHCheckoutRootView-category:hover,
-    .MHCheckoutRootView-category.active {
-        background: var(--bg-main);
-        border-bottom: 1px solid var(--bg-main);
+    /*** Inventory ***/
+    .inventoryContent a {
+        color: var(--text-link);
     }
 
-    .MHCheckout-groupedItems-description span {
-        text-shadow: 1px 1px 2px var(--black);
+    .itemImage .quantity {
+        color: var(--text-contrast);
     }
 
-    .MHCheckoutPageView-tabContainer {
-        border-bottom-color: var(--border-1);
-    }
-    .MHCheckoutPageView-tab-padding {
-        background-color: var(--dark-gray-8);
+    .inventoryPage-item {
+        color: var(--text-normal);
     }
 
-    .MHCheckoutPageView-tab-name {
-        color: var(--blue);
+    .inventoryPage-tagContent-tagTitle {
+        color: var(--text-normal);
+        border-color: var(--background-border);
     }
 
-    .MHCheckoutPageView-tab:hover .MHCheckoutPageView-tab-padding,
-    .MHCheckoutPageView-tab.active .MHCheckoutPageView-tab-padding {
-        background-color: var(--bg-main)
+    .inventoryPage-item-margin,
+    .inventoryPage-item.small .inventoryPage-item-margin {
+        border-color: var(--background-border);
+        background-color: var(--background-secondary);
     }
 
-    .MHCheckoutPageView-tab .MHCheckoutPageView-tab-padding:after {
-        border: 1px solid var(--border-1);
-        border-bottom: none;
+    .inventoryPage-item-name {
+        border-color: var(--background-border);
+        background-color: var(--background-primary);
     }
 
-    .MHCheckoutPageView-tab.active .MHCheckoutPageView-tab-padding:after,
-    .MHCheckoutPageView-tab:hover .MHCheckoutPageView-tab-padding:after {
-        border-color: var(--white);
-    }
-    
-    .MHCheckoutRewardPageView-relatedItems {
-        background-color: var(--dark-gray-4);
-        box-shadow: 5px 10px 10px var(--dark-gray-0) inset;
-    }
-    
-    .MHCheckoutRewardPageView-breadcrumbContainer {
-        border-bottom-color: var(--border-1);
-    }
-    
-    .MHCheckoutRewardPageView-breadcrumbContainer a {
-        color: var(--blue);
-    }
-    
-    .MHCheckoutRewardPageView-quantityOwned {
-        color: var(--secondary-text);
-        border-top-color: var(--border-1);
-    }
-    
-    .MHCheckoutPurchaseButtonView-backButton {
-        background: var(--dark-gray-4);
-        box-shadow: 0 5px 5px var(--dark-gray-2) inset, 1px 1px 1px var(--dark-gray-8);
-    }
-    
-    .MHCheckoutPurchaseButtonView-backButton .MHCheckoutPurchaseButtonView-indent {
-        background: var(--dark-gray-2);
-        border-top-color: var(--dark-gray-6);
-        border-bottom-color: var(--dark-gray-8);
-        box-shadow: 0 -9px 10px var(--dark-gray-16) inset;
-    }
-    
-    .MHCheckoutPurchaseButtonView-backButton:hover {
-        background-color: var(--dark-gray-2);
-        box-shadow: 0 5px 5px var(--dark-gray-1) inset, 0 0 3px var(--dark-gray-2);
-    }
-    
-    .MHCheckoutPurchaseButtonView-backButton:hover .MHCheckoutPurchaseButtonView-indent {
-        background-color: var(--bg-main);
-        box-shadow: 0 -9px 10px var(--dark-gray-1) inset;
-    }
-    
-    .MHCheckout-label.MHCheckout-goldenShield-block,
-    .MHCheckout-superBrieIntro-padding,
-    .MHCheckout-superBrie-tag.goldenShield {
-        color: var(--black);
-    }
-    
-    .MHCheckout-featuredItemTransparent .MHCheckout-featuredItem-name {
-        background-color: var(--dark-gray-2);
+    .inventoryPage-tagDirectory {
+        color: var(--text-normal);
+        border-color: var(--background-border);
     }
 
-    /* #endregion Premium Shoppe */
+    .inventoryPage-tagDirectory-tag {
+        background-color: var(--background-primary);
+    }
 
-    /* #region Profile */
+    .inventoryPage-item-recipeOptions li {
+        border-color: var(--background-border);
+        background-color: var(--background-accent);
+    }
+
+    .inventoryPage-item-recipeOptions li.inactive {
+        background-color: var(--background-secondary);
+        color: var(--text-muted);
+        border-color: transparent;
+    }
+
+    .inventoryPage-item-recipeOptions li.selected {
+        color: var(--text-muted);
+    }
+
+    .inventoryPage-item-recipeOptions li:hover {
+        background-color: inherit;
+    }
+
+    .inventoryPage-item-content-description-gameTasks {
+        background-color: var(--background-primary);
+        border-color: var(--background-border);
+    }
+
+    .inventoryPage-item.component .inventoryPage-item-imageContainer .itemImage {
+        border-color: var(--background-border);
+    }
+
+    .inventoryPage-item-larryLexicon {
+        background-color: var(--background-secondary);
+        border-color: var(--background-border);
+    }
+
+    .itemViewStatBlock {
+        border-color: var(--background-border);
+    }
+
+    .itemViewStatBlock-stat-label {
+        background-color: var(--background-secondary);
+    }
+
+    .itemViewStatBlock-stat-value {
+        background-color: var(--background-primary);
+        color: var(--text-normal);
+    }
+
+    .itemViewStatBlock-stat {
+        border-color: var(--background-border);
+        background-color: var(--background-primary);
+    }
+
+    .itemViewStatBlock-stat-helper {
+        background-color: var(--background-floating);
+        color: var(--text-normal);
+        border-color: var(--background-border);
+    }
+
+    .inventoryPage-item.small .tooltip {
+        background-color: var(--background-floating);
+        border-color: var(--background-border);
+    }
+
+    .inventoryPage-item.small .tooltip .arrow {
+        border-color: var(--background-border) transparent transparent transparent;
+    }
+
+    .inventoryPage-item.small .tooltip .arrow span {
+        border-color: var(--background-floating) transparent transparent transparent;
+    }
+
+    .mousehuntHud-page-subTabContent.trinket .mousehuntHud-page-subTabContent-prefix {
+        background-color: var(--background-primary);
+        box-shadow: none;
+        border-color: var(--background-border);
+        color: var(--text-normal);
+    }
+
+    .mousehuntHud-page-subTabContent-prefix-title {
+        color: var(--text-normal);
+        text-shadow: none;
+    }
+
+    .campPage-trap-itemBrowser-itemDescriptionHover {
+        background-color: var(--background-floating);
+        border-color: var(--background-border);
+        color: var(--text-normal);
+    }
+
+    .campPage-trap-itemBrowser-itemDescriptionHover.mousehuntTooltip.left .mousehuntTooltip-arrow {
+        border-color: transparent transparent transparent var(--background-border);
+    }
+
+    .inventoryPage-item-name a abbr {
+        text-decoration: none;
+    }
+
+    /*** Crafting ***/
+    #overlayBg.crafting .suffix,
+    #overlayBg.crafting .content {
+        background-color: var(--background-primary);
+        border-color: var(--background-border);
+        color: var(--text-normal);
+    }
+
+    #overlayBg.crafting .title {
+        color: var(--text-normal);
+    }
+
+    #overlayBg.crafting .img .name {
+        color: var(--text-normal);
+    }
+
+    #overlayBg.crafting .img .description {
+        color: var(--text-muted);
+    }
+
+    .mousehuntHud-page-tabContent.crafting .mousehuntHud-page-subTabContent {
+        background-color: var(--background-secondary);
+        border-color: var(--background-border);
+        box-shadow: none;
+        color: var(--text-normal);
+    }
+
+    .mousehuntHud-page-tabContent.crafting .mousehuntHud-page-subTabContent-margin {
+        background-color: var(--background-floating);
+        border-color: var(--background-border);
+        box-shadow: none;
+    }
+
+    .inventoryPage-item.recipe.disabled {
+        background-color: var(--background-accent);
+    }
+
+    .mousehuntHud-page-subTabContent.crafting_table .inventoryPage-craftingTable {
+        background-color: var(--background-primary);
+        color: var(--text-normal);
+        border-color: var(--background-border);
+        box-shadow: none;
+    }
+
+    .inventoryPage-craftingTable-title {
+        color: var(--text-normal);
+        border-color: var(--background-border);
+    }
+
+    .inventoryPage-craftingTable-slot-item.empty .inventoryPage-craftingTable-slot-item-name {
+        color: var(--text-normal);
+    }
+
+    .inventoryPage-craftingTable-slot-item-remove,
+    .inventoryPage-craftingTable-slot-item .itemImage {
+        box-shadow: none;
+    }
+
+    .inventoryPage-craftingTable-action {
+        background-color: var(--background-primary);
+        border-color: var(--background-border);
+    }
+
+    /*** Detailed Item View ***/
+    .itemViewContainer {
+        background-color: var(--background-secondary);
+    }
+
+    .itemView-header {
+        border-color: var(--background-border);
+    }
+
+    .itemView-character-name {
+        color: var(--text-normal);
+        text-shadow: none;
+    }
+
+    .itemView-padding {
+        background-color: var(--background-primary);
+        color: var(--text-normal);
+        border-color: var(--background-border);
+    }
+
+    .itemView-loading {
+        background-image: none;
+        background-color: rgb(0, 0, 0, 0.3);
+        box-shadow: none;
+    }
+
+    .itemViewContainer a {
+        color: var(--text-link);
+    }
+
+    a.itemView-sidebar-checklistItem.checked:hover {
+        background-color: var(--background-accent);
+    }
+
+    .itemViewContainer .mousehuntActionButton {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+
+    #overlayPopup.itemViewPopup .suffix {
+        background-color: var(--background-secondary);
+        border-color: var(--background-border);
+    }
+
+    #overlayPopup.itemViewPopup .button {
+        border-color: var(--background-border);
+    }
+
+    .itemViewContainer .itemView-obtainHint {
+        border-color: var(--background-border);
+    }
+
+    /*** Shop ***/
+    .mousehuntHud-page-tabContent.hasShop a {
+        color: var(--text-link);
+    }
+
+    .itemPurchaseView-action-container {
+        background-color: var(--background-accent);
+        border-color: var(--background-border);
+    }
+
+    .shopsPage-compareEquipment {
+        background-color: var(--background-accent);
+        color: var(--text-normal);
+    }
+
+    .shopsPage-header-container {
+        background-color: var(--background-accent);
+        box-shadow: none;
+        color: var(--text-normal);
+    }
+
+    .itemPurchaseView-container {
+        background-color: var(--background-primary);
+        color: var(--text-normal);
+        border-color: var(--background-border);
+    }
+
+    .itemPurchaseView-action-itemCost-table {
+        background-color: var(--background-secondary);
+        border-color: var(--background-border);
+        color: var(--text-normal);
+    }
+
+    .itemPurchaseView-container.kingsCartItem .itemPurchaseView-action-container {
+        box-shadow: -1px 2px 18px var(--background-primary) inset;
+    }
+
+    .itemPurchaseView-action-itemCost-table-cell.owned {
+        color: var(--text-muted);
+    }
+
+    .itemPurchaseView-container.kingsCartItem .itemPurchaseView-content-details:after {
+        display: none;
+    }
+
+    .itemPurchaseView-container.kingsCartItem:not(.expanded) .itemPurchaseView-content-details {
+        -webkit-mask-image: linear-gradient(to bottom,
+        black 60%,
+        transparent 100%);
+        mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+        height: 70px;
+    }
+
+    .shopsPage-empty {
+        color: var(--text-normal);
+    }
+
+    /*** Profile ***/
+    .hunterInfoView-wrapper .hunterInfoView-left a {
+        color: var(--text-link);
+    }
+
+    .messageBoardView-message {
+        background-color: var(--background-primary);
+        color: var(--text-normal);
+    }
+
+    .messageBoardView-message.new {
+        border-color: var(--background-border) !important;
+    }
+
+    .messageBoardView-message-description {
+        color: var(--text-muted);
+    }
+
+    .hunterInfoView-wrapper .messageBoardView-title {
+        color: var(--text-muted);
+    }
+
+    .hunterInfoView-wrapper .hunterInfoView-trapBlock-weapon {
+        background-color: var(--background-trap);
+    }
+
+    .hunterInfoView-wrapper .hunterInfoView-trapBlock-header-title-container {
+        background-color: var(--background-primary);
+        border-color: var(--background-border);
+        box-shadow: none;
+    }
+
+    .hunterInfoView-wrapper .hunterInfoView-trapBlock-header-container {
+        background-color: var(--background-primary);
+        border-color: var(--background-border);
+    }
+
+    .hunterInfoView-wrapper .hunterInfoView-trapBlock-header-title {
+        color: var(--text-normal);
+    }
+
+    .hunterInfoView-wrapper .hunterInfoView-trapBlock-header-container,
+    .hunterInfoView-wrapper .hunterInfoView-trapBlock-setup-container,
+    .hunterInfoView-wrapper .hunterInfoView-trapBlock-setup-items,
+    .hunterInfoView-wrapper .hunterInfoView-trapBlock-footer-stats,
+    .hunterInfoView-wrapper .hunterInfoView-trapBlock-footer {
+        background-color: var(--background-primary);
+        border-color: var(--background-border);
+        background-image: none;
+        box-shadow: none;
+    }
+
+    .hunterInfoView-wrapper .hunterInfoView-idCardBlock {
+        background-color: var(--background-secondary);
+        border-color: var(--background-border);
+        box-shadow: none;
+    }
+
+    .PageHunterProfile .friendsPage-friendRow {
+        color: var(--text-normal);
+        background-image: none;
+    }
+
+    .PageHunterProfile .friendsProfileView-container {
+        background-color: var(--background-secondary);
+        color: var(--text-normal);
+        border-color: var(--background-border);
+        box-shadow: none;
+    }
+
+    .hunterInfoView-wrapper .hunterInfoView-hunterId {
+        background-color: var(--background-accent);
+        color: var(--text-normal);
+    }
+
+    .hunterInfoView-hunterId-copyConfirmText {
+        color: var(--text-link);
+    }
+
+    .hunterInfoView-wrapper .hunterInfoView-idCardBlock-stats .hunterInfoView-idCardBlock-stats-item-desc {
+        color: var(--text-muted);
+    }
+
+    .hunterInfoView-wrapper .hunterInfoView-idCardBlock-stats,
+    .hunterInfoView-wrapper .hunterInfoView-idCardBlock-teamInfo-container,
+    .hunterInfoView-wrapper .hunterInfoView-idCardBlock-teamInfo-container:before,
+    .hunterInfoView-wrapper .hunterInfoView-idCardBlock-teamInfo-container .teamEmblemView,
+    .hunterInfoView-wrapper .hunterInfoView-idCardBlock-stats-huntingSince,
+    .hunterInfoView-wrapper .hunterInfoView-idCardBlock-stats-horn-container {
+        background-color: var(--background-primary);
+        border-color: var(--background-border);
+    }
 
     .hunterInfoView-idCardBlock-teamInfo span {
-        color: var(--themed-text);
-    }
-    
-    .hunterInfoView-wrapper .hunterInfoView-idCardBlock-stats {
-        background: var(--dark-gray-16);    
-    }
-    
-    .hunterInfoView-wrapper .hunterInfoView-idCardBlock-teamInfo-container {
-        background-color: var(--dark-gray-16);
-    }
-    
-    .hunterInfoView-wrapper .hunterInfoView-idCardBlock-teamInfo-container:before {
-        background-color: var(--dark-gray-16);
-    }
-    
-    .hunterInfoView-wrapper .hunterInfoView-idCardBlock-stats-huntingSince {
-        background-color: var(--dark-gray-16);
-    }
-    
-    .hunterInfoView-wrapper .hunterInfoView-idCardBlock-stats-horn-container {
-        background-color: var(--dark-gray-16);
-    }
-    
-    .hunterInfoView-idCardBlock-goldenShield-text {
-        color: var(--black);
+        color: var(--text-normal);
     }
 
-    /* #endregion Profile */
+    .PageHunterProfile .friendsPage-friendRow-statsContainer {
+        box-shadow: none;
+        color: var(--text-normal);
+    }
+
+    .hunterInfoView-wrapper .hunterInfoView-idCardBlock-goldenShield-text {
+        color: var(--hg-default-grey);
+    }
+
+    .hunterInfoView-wrapper .hunterInfoView-favoritesBlock {
+        border-color: var(--background-border);
+        box-shadow: none;
+    }
+
+    .hunterInfoView-wrapper .hunterInfoView-favoritesBlock-header {
+        background-image: none;
+        background-color: var(--background-primary);
+        border-color: var(--background-border);
+        color: var(--text-normal);
+    }
+
+    .hunterInfoView-wrapper .hunterInfoView-favoritesBlock-content-mouseLabel {
+        color: var(--text-normal);
+    }
+
+    .hunterInfoView-wrapper .hunterInfoView-favoritesBlock-body {
+        background-image: none;
+        background-color: var(--background-secondary);
+        border-color: var(--background-border);
+        color: var(--text-normal);
+    }
+
+    .hunterInfoView-wrapper .mousehuntTabHeader span {
+        background-color: var(--background-floating);
+        border-color: var(--background-primary);
+        color: var(--text-normal);
+        box-shadow: none;
+        text-shadow: none;
+    }
+
+    .hunterInfoView-wrapper .hunterInfoView-achievementsBlock .mousehuntTabHeader:before,
+    .hunterInfoView-wrapper .mousehuntTabHeader:before,
+    .hunterInfoView-wrapper .mousehuntTabHeader.active span,
+    .hunterInfoView-wrapper .hunterInfoView-achievementsBlock .mousehuntTabHeader:hover span {
+        background-color: var(--background-primary);
+        box-shadow: none;
+    }
+
+    .hunterInfoView-wrapper .hunterInfoView-achievementsBlock .mousehuntTabContentContainer {
+        background-color: var(--background-primary);
+        border-color: var(--background-border);
+        color: var(--text-normal);
+        box-shadow: none;
+    }
+
+    .hunterInfoView-achievementsBlock .mousehuntTabContentContainer-padding {
+        background-color: var(--background-accent);
+        border-color: var(--background-border);
+        box-shadow: none;
+    }
+
+    .hunterInfoView-wrapper .hunterInfoView-treasureMaps-right-cluesFound-label,
+    .hunterInfoView-wrapper .hunterInfoView-treasureMaps-right-cluesFound {
+        color: var(--text-normal);
+    }
+
+    .hunterInfoView-wrapper .journalEntries {
+        background-color: var(--hg-default-white);
+    }
+
+    /*** Crowns ***/
+    .mouseCrownsView-group {
+        color: var(--text-normal);
+    }
+
+    .mouseCrownsView-group-header-subtitle {
+        color: var(--text-normal);
+    }
+
+    .mouseCrownsView-group-mouse.highlight .mouseCrownsView-group-mouse-name,
+    .mouseCrownsView-group-mouse:not(.favourite) .mouseCrownsView-group-mouse-name {
+        color: var(--text-normal);
+    }
+
+    .mouseCrownsView-group-mouse:hover .mouseCrownsView-group-mouse-padding {
+        background-color: var(--background-primary);
+    }
+
+    /*** Profile Items ***/
+    .hunterProfileItemsView-category {
+        filter: invert(1);
+    }
+
+    .hunterProfileItemsView-category > div {
+        color: var(--text-link);
+        filter: invert(1);
+    }
+
+    .hunterProfileItemsView-category.active {
+        filter: none;
+    }
+
+    .hunterProfileItemsView-category.active > div {
+        color: var(--text-normal);
+        filter: none;
+    }
+
+    .hunterProfileItemsView-categoryContent-name {
+        color: var(--text-normal);
+    }
+
+    .hunterProfileItemsView-content-padding {
+        background-color: var(--background-secondary);
+        color: var(--text-normal);
+    }
+
+    .hunterProfileItemsView-content-padding a {
+        color: var(--text-link);
+    }
+
+    .hunterProfileItemsView-categoryContent-item-padding {
+        border-color: var(--background-border);
+    }
+
+    .hunterProfileItemsView-categoryContent-item.uncollected .hunterProfileItemsView-categoryContent-item-padding {
+        color: var(--text-muted);
+        background-color: var(--background-accent);
+    }
+
+    .hunterProfileItemsView-filter:hover {
+        background-color: var(--background-accent);
+    }
+
+    /*** Mice ***/
+    .mouseViewPopup .content {
+        background-color: var(--background-secondary);
+        color: var(--text-normal);
+    }
+
+    .mouseViewPopup .mouseView-title {
+        color: var(--text-normal);
+    }
+
+    .mouseViewPopup .mouseView-statsContainer-block {
+        background-color: var(--background-primary);
+    }
+
+    .mouseView-categoryContent-subgroup-mouse-weaknesses-label {
+        border-color: var(--background-border);
+    }
+
+    .mouseViewPopup a {
+        color: var(--link-text);
+    }
+
+    #overlayPopup.mouseViewPopup .suffix {
+        background-color: var(--background-secondary);
+        border-color: var(--background-border);
+    }
+
+    .mouseViewPopup .mouseView-image {
+        background-color: var(--background-accent);
+    }
+
+    .mouseListView-category {
+        filter: invert(1);
+    }
+
+    .mouseListView-category > div {
+        color: var(--text-link);
+        filter: invert(1);
+    }
+
+    .mouseListView-categoryContainer.active .mouseListView-category {
+        filter: none;
+    }
+
+    .mouseListView-categoryContainer.active .mouseListView-category > div {
+        color: var(--text-normal);
+        filter: none;
+    }
+
+    .mouseListView-subcategory {
+        background-color: var(--background-secondary);
+        border-color: var(--background-border);
+        color: var(--text-link);
+    }
+
+    .mouseListView-categoryContent-category {
+        background-color: var(--background-secondary);
+        color: var(--text-normal);
+    }
+
+    .mouseListView-categoryContent-category a {
+        color: var(--text-link);
+    }
+
+    .mouseListView-categoryContent-subgroup-name {
+        background-color: var(--background-primary);
+        color: var(--text-normal);
+    }
+
+    .mouseListView-categoryContent-name {
+        color: var(--text-normal);
+    }
+
+    .adversariesPage-list-header {
+        background-color: var(--background-secondary);
+        box-shadow: none;
+    }
+
+    .adversariesPage-list-header label {
+        color: var(--text-normal);
+    }
+
+    .mouseListView-categoryContent-weaknessesContainer {
+        background-color: var(--background-primary);
+        border-color: var(--background-border);
+        color: var(--text-normal);
+    }
+
+    .mouseListView-categoryContent-subgroup-mouse.stats.header {
+        background-color: var(--background-accent) !important;
+    }
+
+    .mouseListView-categoryContent-subgroup-mouse.stats:nth-child(odd) {
+        background-color: var(--background-primary);
+    }
+
+    .mouseListView-categoryContent-filter-option {
+        background-color: var(--background-primary);
+    }
+
+    /*** Scoreboards ***/
+    .tournamentPage-tournamentHeading {
+        color: var(--text-normal);
+    }
+
+    .scoreboardTableView-content a {
+        color: var(--text-link);
+    }
+
+    .scoreboardTableView-content {
+        background-color: var(--background-secondary);
+        border-color: var(--background-border);
+        box-shadow: none;
+    }
+
+    .scoreboardTableView,
+    .scoreboardTableView-filters label,
+    .scoreboardTableView-table th {
+        color: var(--text-normal);
+    }
+
+    .scoreboardTableView-header {
+        background-color: var(--background-secondary);
+        border-color: var(--background-border);
+        box-shadow: none;
+        color: var(--text-normal);
+    }
+
+    .scoreboardTableView-header-title {
+        text-shadow: none;
+    }
+
+    .scoreboardTableView-separator hr {
+        background-color: var(--background-border);
+        border-color: var(--background-border);
+    }
+
+    .scoreboardTableView-row.highlight {
+        color: var(--hg-default-grey);
+    }
+
+    .scoreboardTableView-tournament {
+        border-color: var(--background-border);
+    }
+
+    .scoreboardTableView-tournament-property b {
+        color: var(--text-normal);
+    }
+
+    .scoreboardTableView-tournament-property span {
+        color: var(--text-muted);
+    }
+
+    /*** Marketplace ***/
+    .marketplaceView-header-tabHeader {
+        background-color: var(--background-floating);
+        color: var(--text-normal);
+    }
+
+    .marketplaceView-header-tabHeader:hover,
+    .marketplaceView-header-tabHeader.active {
+        background-color: var(--background-secondary);
+        color: var(--text-normal);
+    }
+
+    .marketplaceView .marketplaceContentContainer {
+        background-color: var(--background-secondary);
+        color: var(--text-normal);
+    }
+
+    .marketplaceView .marketplaceContentContainer a {
+        color: var(--text-link);
+    }
+
+    .marketplaceHome-blockItem-value {
+        color: var(--text-muted);
+    }
+
+    .marketplaceHome-blockItem {
+        color: var(--text-normal);
+    }
+
+    .marketplaceView h1 {
+        color: var(--text-normal);
+    }
+
+    .marketplaceView label {
+        color: var(--text-normal);
+    }
+
+    .marketplaceView .mousehuntActionButton {
+        box-shadow: none;
+    }
+
+    .marketplaceView-trendContainer {
+        background-color: var(--background-primary);
+        border-color: var(--background-border);
+    }
+
+    .marketplaceView-item-graphTable .marketplaceView-trendContainer {
+        color: var(--text-normal);
+    }
+
+    .marketplaceView-breadcrumb,
+    .marketplaceHome-block-viewAll,
+    .marketplaceHome-block-carousel .marketplaceHome-block-viewAll,
+    .marketplaceView-moreLink {
+        background-color: var(--background-primary);
+        border-color: var(--background-border);
+        color: var(--text-normal);
+    }
+
+    .marketplaceHome-block-viewAll:hover,
+    .marketplaceView-moreLink:hover,
+    .marketplaceView-breadcrumb:hover {
+        background: var(--background-accent);
+    }
+
+    .marketplaceView-table tr:nth-child(odd) {
+        background-color: var(--background-primary);
+        color: var(--text-normal);
+    }
+
+    .marketplaceView-table-numeric,
+    .marketplace-sidebar-tsitu {
+        text-shadow: -1px -1px 0 var(--background-secondary),
+        1px -1px 0 var(--background-secondary),
+        -1px 1px 0 var(--background-secondary),
+        1px 1px 0 var(--background-secondary);
+    }
+
+    .marketplaceView-table tr:nth-child(odd) .marketplaceView-table-numeric {
+        text-shadow: -1px -1px 0 var(--background-primary),
+        1px -1px 0 var(--background-primary),
+        -1px 1px 0 var(--background-primary),
+        1px 1px 0 var(--background-primary);
+    }
+
+    .marketplaceView-table tr:hover {
+        background-color: var(--background-accent);
+    }
+
+    .marketplaceView-table-filterReminder,
+    .marketplaceView-table-empty {
+        background-color: var(--background-secondary);
+    }
+
+    .marketplaceView-cell-progressBar,
+    .marketplaceView-floatingTooltip {
+        color: var(--hg-default-grey);
+    }
+
+    .marketplaceView-item-footer .marketplaceView-table {
+        background-color: var(--background-secondary);
+    }
+
+    .marketplaceView-item-quickListings th {
+        color: var(--text-normal);
+    }
+
+    .marketplaceView-table tr.empty {
+        background-color: var(--background-secondary) !important;
+    }
+
+    .marketplaceView-browse-sidebar-link {
+        background-color: var(--background-primary);
+    }
+
+    .mousehuntCharacterGuideBox-content {
+        background-color: var(--background-primary);
+    }
+
+    .PageMarketplaceLegacy {
+        color: var(--text-normal);
+    }
+
+    .PageMarketplaceLegacy h1 {
+        color: var(--text-normal);
+    }
+
+    .marketplaceLegacyPage-table {
+        background-color: var(--background-secondary);
+        border-color: var(--background-border);
+        color: var(--text-normal);
+    }
+
+    .marketplaceLegacyPage-table th {
+        background-color: var(--background-secondary);
+    }
+
+    .marketplaceLegacyPage-table a {
+        color: var(--text-link);
+    }
+
+    .marketplaceLegacyPage-table tr:nth-child(odd) {
+        background-color: var(--background-primary);
+    }
+
+    /*** Maps ***/
+    #overlayPopup.treasureMapPopup .treasureMapRootView-content {
+        color: var(--text-normal);
+    }
+
+    #overlayPopup.treasureMapPopup .treasureMapRootView-content a {
+        color: var(--text-link);
+    }
+
+    #overlayPopup.treasureMapPopup a.treasureMapView-goals-group-goal {
+        color: var(--text-normal);
+    }
+
+    .treasureMapView-goals-group-goal.complete .treasureMapView-goals-group-goal-name span {
+        color: var(--text-positive);
+    }
+
+    #overlayPopup.treasureMapPopup .mousehuntActionButton {
+        box-shadow: none;
+    }
+
+    #overlayPopup.treasureMapPopup .jsDialog.background {
+        background-color: var(--background-primary);
+    }
+
+    #overlayPopup.treasureMapPopup .jsDialogContainer .suffix {
+        background-color: var(--background-primary);
+        border-color: var(--background-border);
+    }
+
+    .treasureMapListingsTableView th {
+        background-color: var(--background-primary);
+    }
+
+    .treasureMapListingsTableView th.sortable.active,
+    .treasureMapListingsTableView th.sortable:hover {
+        background-color: var(--background-accent);
+    }
+
+    .treasureMapListingsTableView tbody tr:nth-child(even) {
+        background-color: var(--background-secondary);
+    }
+
+    .treasureMapView-block,
+    .treasureMapView-block-content-heading,
+    .treasureMapInventoryView-relicHunter,
+    .treasureMapView-scoreboard {
+        border-color: var(--background-border);
+    }
+
+    .treasureMapView-block-content-heading-count {
+        color: var(--text-normal);
+    }
+
+    .treasureMapPopup-shop-item-description-cost-image {
+        margin-right: 4px;
+    }
+
+    .treasureMapPopup-seasonContainer {
+        background-color: var(--background-accent);
+    }
+
+    .treasureMapRootView-tab {
+        color: var(--text-normal);
+        background-color: var(--background-secondary);
+    }
+
+    .treasureMapRootView-tab.active,
+    .treasureMapRootView-tab:hover {
+        background-color: var(--background-primary);
+    }
+
+    .treasureMapView-highlight-content {
+        background-color: var(--background-secondary);
+    }
+
+    .treasureMapView-previewBar {
+        color: var(--hg-default-grey);
+    }
+
+    .treasureMapView-allyTable .treasureMapView-allyRow:nth-child(even) {
+        background-color: var(--background-secondary);
+    }
+
+    .treasureMapView-goals-group-goal:hover:before,
+    .treasureMapView-goals-group-goal.sticky:before {
+        background-color: var(--background-accent);
+        box-shadow: none;
+    }
+
+    .treasureMapView-highlight-catcher {
+        background-color: var(--background-primary);
+        color: var(--text-normal);
+        border-color: var(--background-border);
+    }
+
+    .treasureMapView-reward,
+    .treasureMapView-consolationPrize,
+    .treasureMapView-mapWarning,
+    .treasureMapView-environment-progress,
+    #overlayPopup.treasureMapPopup .treasureMapDialogView a.treasureMapView-goals-group-goal {
+        color: var(--hg-default-grey);
+    }
+
+    .treasureMapView-environment.inactive .treasureMapView-environment-progress {
+        color: var(--text-normal);
+    }
+
+    .treasureMapPopup-shop-environment.active:before {
+        background-color: var(--background-accent);
+    }
+
+    .treasureMapRootView-subTabContainer {
+        background-color: var(--background-secondary);
+        border-color: var(--background-border);
+    }
+
+    .treasureMapRootView-subTab,
+    .treasureMapRootView-subTabContainer:hover .treasureMapRootView-subTab.active {
+        border-color: var(--background-secondary);
+    }
+
+    .treasureMapRootView-subTab.active,
+    .treasureMapRootView-subTabContainer:hover .treasureMapRootView-subTab:hover {
+        background-color: var(--background-primary);
+        border-color: var(--background-border);
+    }
+
+    .treasureMapView textarea {
+        background-color: var(--background-primary);
+        border-color: var(--background-accent);
+        color: var(--text-normal);
+    }
+
+    /*** Send Gifts ***/
 }
