@@ -6,7 +6,7 @@
 @supportURL   https://github.com/InKahootz/dark-mousehunt/issues
 @updateURL    https://github.com/InKahootz/dark-mousehunt/dark-mousehunt.user.css
 @author       InKahootz (https://github.com/InKahootz)
-@version      0.10.0
+@version      0.10.1
 @license      MIT
 @preprocessor stylus
 
@@ -2087,5 +2087,10 @@ url-prefix("http://www.mousehuntgame.com") {
         border-color: var(--background-border);
     }
     
-    /*** Send Gifts ***/
+    /*** Exceptions ***/
+
+    /* Halloween Apothecary */
+    .apothecary .itemPurchaseView-content-container {
+        color: var(--hg-default-grey);
+    }
 }
