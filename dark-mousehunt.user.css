@@ -6,7 +6,7 @@
 @supportURL   https://github.com/InKahootz/dark-mousehunt/issues
 @updateURL    https://github.com/hymccord/dark-mousehunt/raw/main/dark-mousehunt.user.css
 @author       Xellis (https://github.com/hymccord)
-@version      0.11.0
+@version      0.12.0
 @license      MIT
 @preprocessor stylus
 
@@ -24,6 +24,8 @@
 @var color custom-background-outer "Background for page outside the UI" #18191c
 @var color custom-background-outer-secondary "Background for page immediately outside UI" #232429
 @var color custom-background-border "Borders" #4f545c
+@var range custom-hud-brightness "Hud Brightness" [100, 0, 100, 1, '%']
+@var range custom-journal-brightness "Journal Brightness" [75, 0, 100, 1, '%']
 ==/UserStyle== */
 @-moz-document url-prefix("https://www.mousehuntgame.com"),
 url-prefix("http://www.mousehuntgame.com") {
@@ -57,6 +59,7 @@ url-prefix("http://www.mousehuntgame.com") {
         --hg-default-black: #000;
         --hg-default-grey: #333;
         --hg-default-white: #fff;
+
         /* for resetting various things back to hg defaults */
     }
 
@@ -70,6 +73,12 @@ url-prefix("http://www.mousehuntgame.com") {
 	- loaders -- the circular ones are ok
 	- premium shop -- not doing
 	*/
+    
+    /** HUD ***/
+    .gameHeader {
+        filter: brightness(custom-hud-brightness);
+    }
+
     /*** General/Outer HUD ***/
     .pageSidebarView a,
     .pageFrameView-footer a {
@@ -589,6 +598,7 @@ url-prefix("http://www.mousehuntgame.com") {
     /*** Journal ***/
     .journal .content {
         padding: 0 7px 0 10px;
+        filter: brightness(custom-journal-brightness);
     }
 
     .journal .entry {
@@ -822,6 +832,12 @@ url-prefix("http://www.mousehuntgame.com") {
     .giftSelectorView-tabHeader.disabled span {
         color: var(--text-muted);
     }
+    
+    .giftSelectorView-tabHeader.highlight span {
+        background: hsl(40, 100%, 30%);
+        box-shadow: none;
+        text-decoration: none
+    }
 
     .giftSelectorView-tabContent {
         background-color: var(--background-accent);
@@ -848,14 +864,6 @@ url-prefix("http://www.mousehuntgame.com") {
     .giftSelectorView-actionLimit:after {
         background-color: #fff7cf;
         box-shadow: 0 0 1px #bf9e05 inset
-    }
-
-    .giftSelectorView-actionLimit.error {
-        color: #fff
-    }
-
-    .giftSelectorView-actionLimit.error:after {
-        background: #ff9a9a
     }
 
     .giftSelectorView-claimableGift-title-accordion {
@@ -942,7 +950,7 @@ url-prefix("http://www.mousehuntgame.com") {
 
     .giftSelectorView-friend-padding,
     .giftSelectorView-confirmPopup-block-actionItem .giftSelectorView-friend:hover .giftSelectorView-friend-padding {
-        background-color: var(--background-primary);
+        background-color: var(--background-accent);
         box-shadow: 0 0 1px #fff inset
     }
 
@@ -1056,15 +1064,16 @@ url-prefix("http://www.mousehuntgame.com") {
     .giftSelectorView-confirmPopup-padding {
         background-color: #354f7f;
         border: 5px solid #354f7f;
-        box-shadow: 0 0 10px #fff
+        box-shadow: 0 0 10px var(--background-border)
     }
 
     .giftSelectorView-confirmPopup-content {
-        background-color: #fff
+        color: var(--text-normal);
+        background-color: var(--background-secondary);
     }
 
     .giftSelectorView-confirmPopup-block-gift .giftSelectorView-gift:hover .giftSelectorView-gift-padding {
-        background-color: #fff;
+        background-color: var(--background-secondary);
         color: #000
     }
 
