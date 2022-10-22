@@ -6,7 +6,7 @@
 @supportURL   https://github.com/InKahootz/dark-mousehunt/issues
 @updateURL    https://github.com/hymccord/dark-mousehunt/raw/main/dark-mousehunt.user.css
 @author       Xellis (https://github.com/hymccord)
-@version      0.12.0
+@version      0.13.0
 @license      MIT
 @preprocessor stylus
 
@@ -26,33 +26,34 @@
 @var color custom-background-border "Borders" #4f545c
 @var range custom-hud-brightness "Hud Brightness" [100, 0, 100, 1, '%']
 @var range custom-journal-brightness "Journal Brightness" [75, 0, 100, 1, '%']
+@var checkbox remove-camp-background "Remove Camp Background (Wood, Blueprint)" 0
 ==/UserStyle== */
 @-moz-document url-prefix("https://www.mousehuntgame.com"),
 url-prefix("http://www.mousehuntgame.com") {
     /* Main */
     :root {
-        --text-normal: var(--custom-text-normal, #dcddde);
-        --text-muted: var(--custom-text-muted, #a3a6aa);
-        --text-link: var(--custom-text-link, hsl(197, 100%, 47.8%));
-        --text-positive: var(--custom-text-positive, hsl(139, 51.6%, 52.2%));
-        --text-danger: var(--custom-text-danger, hsl(359, 82%, 73.9%));
-        --background-primary: var(--custom-background-primary, #36393f);
+        --text-normal: custom-text-normal;
+        --text-muted: custom-text-muted;
+        --text-link: custom-text-link;
+        --text-positive: custom-text-positive;
+        --text-danger: custom-text-danger;
+        --background-primary: custom-background-primary;
         /* background color for most elements */
-        --background-secondary: var(--custom-background-secondary, #2f3136);
+        --background-secondary: custom-background-secondary;
         /* should be darker than primary */
-        --background-accent: var(--custom-background-accent, #4f545c);
+        --background-accent: custom-background-accent;
         /* should be lighter than primary */
-        --background-floating: var(--custom-background-floating, #18191c);
+        --background-floating: custom-background-floating;
         /* should be darker than secondary */
-        --text-contrast: var(--custom-text-contrast, #4f545c);
+        --text-contrast: custom-text-contrast;
         /* used in situations where darker text is needed */
-        --background-trap: var(--custom-background-trap, var(--background-secondary));
+        --background-trap: custom-background-trap;
         /* background behind trap art */
-        --background-outer: var(--custom-background-outer, var(--background-floating));
+        --background-outer: custom-background-outer;
 
-        --background-outer-secondary: var(--custom-background-outer-secondary, #232429);
+        --background-outer-secondary: custom-background-outer-secondary;
         /* page background outside UI */
-        --background-border: var(--custom-background-border, var(--background-accent));
+        --background-border: custom-background-border;
         /* almost every border */
         --loader-brightness: 0.2;
         /* used to dim full page instances of the white loader mouse */
@@ -106,6 +107,14 @@ url-prefix("http://www.mousehuntgame.com") {
     #mousehuntContainer.PageCamp {
         box-shadow: inset 0px 0px 0px 1px var(--background-border);
         /* darkens the 1px line on either side of the camp background image */
+    }
+    
+    if (remove-camp-background) {
+        #mousehuntContainer.PageCamp,
+        #mousehuntContainer.PageCamp.showBlueprint {
+            background: none;
+        }
+        
     }
 
     .pageFrameView-content {
@@ -763,6 +772,14 @@ url-prefix("http://www.mousehuntgame.com") {
 
     #giftSelectorView-inbox a {
         color: var(--text-link);
+    }
+    
+    
+    #giftSelectorView-inbox .mousehuntTooltip {
+        background: var(--background-primary);
+        color: var(--text-normal);
+        border-color: var(--hg-default-black);
+        box-shadow: 2px 3px 4px var(--background-border)
     }
 
     #giftSelectorView-inbox .mousehuntActionButton {
