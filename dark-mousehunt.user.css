@@ -6,7 +6,7 @@
 @supportURL   https://github.com/InKahootz/dark-mousehunt/issues
 @updateURL    https://github.com/hymccord/dark-mousehunt/raw/main/dark-mousehunt.user.css
 @author       Xellis (https://github.com/hymccord)
-@version      0.13.0
+@version      0.13.1
 @license      MIT
 @preprocessor stylus
 
@@ -1152,18 +1152,25 @@ url-prefix("http://www.mousehuntgame.com") {
         background-color: var(--background-accent);
     }
 
-    .inventoryPage-item-recipeOptions li.inactive {
-        background-color: var(--background-secondary);
-        color: var(--text-muted);
-        border-color: transparent;
+    .inventoryPage-item-recipeOptions li:hover {
+        background-color: inherit;
+        border-color:#fc6
     }
 
     .inventoryPage-item-recipeOptions li.selected {
-        color: var(--text-muted);
+        color: var(--text-normal);
+        background-color:rgba(84, 73, 18, 1);
+        border-color: var(--background-border);
     }
 
-    .inventoryPage-item-recipeOptions li:hover {
-        background-color: inherit;
+    /* .inventoryPage-item-recipeOptions li.error {
+        border:1px dotted #e33
+    } */
+
+    .inventoryPage-item-recipeOptions li.inactive {
+        background-color: var(--background-secondary);
+        color: var(--text-normal);
+        border-color: transparent;
     }
 
     .inventoryPage-item-content-description-gameTasks {
