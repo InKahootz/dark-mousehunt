@@ -1,12 +1,12 @@
 /* ==UserStyle==
-@name         Dark MouseHunt - Full
+@name         Dark MouseHunt
 @description  Customizable recolor for most of the UI. Default palette is a dark mode. Intended for use with Stylus extension. Based on https://greasyfork.org/en/scripts/449330-mousehunt-dark-ui-theme-full from squash.
 @namespace    github.com/InKahootz/dark-mousehunt
 @homepageURL  https://github.com/InKahootz/dark-mousehunt
 @supportURL   https://github.com/InKahootz/dark-mousehunt/issues
 @updateURL    https://github.com/hymccord/dark-mousehunt/raw/main/dark-mousehunt.user.css
 @author       Xellis (https://github.com/hymccord)
-@version      0.13.1
+@version      0.13.4
 @license      MIT
 @preprocessor stylus
 
@@ -26,6 +26,7 @@
 @var color custom-background-border "Borders" #4f545c
 @var range custom-hud-brightness "Hud Brightness" [100, 0, 100, 1, '%']
 @var range custom-journal-brightness "Journal Brightness" [75, 0, 100, 1, '%']
+@var range custom-column-brightness "Outside Column Brightness" [25, 0, 100, 1, '%']
 @var checkbox remove-camp-background "Remove Camp Background (Wood, Blueprint)" 0
 ==/UserStyle== */
 @-moz-document url-prefix("https://www.mousehuntgame.com"),
@@ -78,6 +79,7 @@ url-prefix("http://www.mousehuntgame.com") {
     /** HUD ***/
     .gameHeader {
         filter: brightness(custom-hud-brightness);
+        z-index: 11;
     }
 
     /*** General/Outer HUD ***/
@@ -1169,7 +1171,7 @@ url-prefix("http://www.mousehuntgame.com") {
 
     .inventoryPage-item-recipeOptions li.inactive {
         background-color: var(--background-secondary);
-        color: var(--text-normal);
+        color: var(--text-muted);
         border-color: transparent;
     }
 
@@ -2127,7 +2129,8 @@ url-prefix("http://www.mousehuntgame.com") {
         color: var(--hg-default-grey);
     }
     
-    body.halloween .pageFrameView-column {
-        filter: brightness(25%)
+    body.halloween .pageFrameView-column,
+    body.great_winter_hunt .pageFrameView-column {
+        filter: brightness(custom-column-brightness)
     }
 }
