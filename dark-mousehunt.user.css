@@ -6,7 +6,7 @@
 @supportURL   https://github.com/InKahootz/dark-mousehunt/issues
 @updateURL    https://github.com/hymccord/dark-mousehunt/raw/main/dark-mousehunt.user.css
 @author       Xellis (https://github.com/hymccord)
-@version      0.13.4
+@version      0.14.0
 @license      MIT
 @preprocessor stylus
 
@@ -65,17 +65,17 @@ url-prefix("http://www.mousehuntgame.com") {
         /* for resetting various things back to hg defaults */
     }
 
-    /*  
+    /*
 	Incomplete:
 	- many random dialogs -- don't want to target them too generally
 	- team
-	- friends 
+	- friends
 	- journal -- not doing without a good color palette for all entry types
 	- travel -- not doing
 	- loaders -- the circular ones are ok
 	- premium shop -- not doing
 	*/
-    
+
     /** HUD ***/
     .gameHeader {
         filter: brightness(custom-hud-brightness);
@@ -110,13 +110,13 @@ url-prefix("http://www.mousehuntgame.com") {
         box-shadow: inset 0px 0px 0px 1px var(--background-border);
         /* darkens the 1px line on either side of the camp background image */
     }
-    
+
     if (remove-camp-background) {
         #mousehuntContainer.PageCamp,
         #mousehuntContainer.PageCamp.showBlueprint {
             background: none;
         }
-        
+
     }
 
     .pageFrameView-content {
@@ -775,8 +775,8 @@ url-prefix("http://www.mousehuntgame.com") {
     #giftSelectorView-inbox a {
         color: var(--text-link);
     }
-    
-    
+
+
     #giftSelectorView-inbox .mousehuntTooltip {
         background: var(--background-primary);
         color: var(--text-normal);
@@ -851,7 +851,7 @@ url-prefix("http://www.mousehuntgame.com") {
     .giftSelectorView-tabHeader.disabled span {
         color: var(--text-muted);
     }
-    
+
     .giftSelectorView-tabHeader.highlight span {
         background: hsl(40, 100%, 30%);
         box-shadow: none;
@@ -954,7 +954,7 @@ url-prefix("http://www.mousehuntgame.com") {
     .giftSelectorView-friend-search-label {
         color: var(--text-muted);
     }
-    
+
     .giftSelectorView-friendRow-action {
         color: #000 !important
     }
@@ -1422,6 +1422,25 @@ url-prefix("http://www.mousehuntgame.com") {
 
     .shopsPage-empty {
         color: var(--text-normal);
+    }
+
+    .dragonSlayerTeaser {
+        color: var(--text-normal);
+    }
+
+    /* Halloween Apothecary */
+    .apothecary .itemPurchaseView-content-container {
+        color: var(--hg-default-grey);
+    }
+
+    /* Big Jaq */
+    .itemPurchaseView-container.big_jack {
+        background: var(--background-primary);
+    }
+
+    .itemPurchaseView-container.big_jack .itemPurchaseView-action-itemCost-table:before {
+        color: #d39140
+        background: var(--background-secondary);
     }
 
     /*** Profile ***/
@@ -2121,16 +2140,35 @@ url-prefix("http://www.mousehuntgame.com") {
     .mousehuntPage-puzzle-form-code-border {
         border-color: var(--background-border);
     }
-    
+
+    /*** Reciept ***/
+
+    .transactionReceiptView,
+    .transactionReceiptView h1 {
+        color: var(--text-normal);
+    }
+
+    .transactionReceiptView-reward-reminder {
+        color: var(--text-muted);
+    }
+
+    .transactionReceiptView a {
+        color: var(--text-link);
+    }
+
+    .transactionReceiptView-reward-itemsContainer {
+        background-color: var(--background-accent);
+    }
+
     /*** Exceptions ***/
 
-    /* Halloween Apothecary */
-    .apothecary .itemPurchaseView-content-container {
-        color: var(--hg-default-grey);
-    }
-    
+    /* Event sideview columns */
     body.halloween .pageFrameView-column,
-    body.great_winter_hunt .pageFrameView-column {
+    body.great_winter_hunt .pageFrameView-column,
+    body.lunar_new_year .pageFrameView-column,
+    body.birthday .pageFrameView-column,
+    body.valentines .pageFrameView-column,
+    body.spring_hunt .pageFrameView-column, {
         filter: brightness(custom-column-brightness)
     }
 }
