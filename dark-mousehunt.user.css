@@ -6,7 +6,7 @@
 @supportURL   https://github.com/InKahootz/dark-mousehunt/issues
 @updateURL    https://github.com/hymccord/dark-mousehunt/raw/main/dark-mousehunt.user.css
 @author       Xellis (https://github.com/hymccord)
-@version      0.14.0
+@version      0.16.0
 @license      MIT
 @preprocessor stylus
 
@@ -213,21 +213,21 @@ url-prefix("http://www.mousehuntgame.com") {
         border-color: var(--background-border);
     }
 
-    .campPage-trap-armedItem {
+    .trapSelectorView__armedItem {
         box-shadow: none;
     }
 
-    .campPage-trap-armedItem.bait {
+    .trapSelectorView__armedItem.bait {
         background-color: var(--background-primary);
         border-color: var(--background-border);
         box-shadow: none;
     }
 
-    .campPage-trap-armedItem.bait .campPage-trap-armedItem-image {
+    .trapSelectorView__armedItem.bait .trapSelectorView__armedItemImageImage {
         border-color: var(--background-border);
     }
 
-    .campPage-trap-armedItem .quantity span {
+    .trapSelectorView__armedItemQuantity span {
         background-color: var(--background-primary);
         border-color: var(--background-border);
         color: var(--text-normal);
@@ -243,15 +243,16 @@ url-prefix("http://www.mousehuntgame.com") {
         text-shadow: none;
     }
 
-    .campPage-trap-armedItem.skin {
+    .trapSelectorView__armedItemBorder {
         background-color: var(--background-primary);
         border-color: var(--background-border);
         box-shadow: none;
     }
 
-    .campPage-trap-armedItem-empty {
-        background-color: var(--background-primary);
+    .trapSelectorView__armedItem--empty .trapSelectorView__armedItemImage {
+        background: var(--background-primary);
         color: var(--text-muted);
+        box-shadow: 0 0 1px 1px var(--background-border) inset
     }
 
     .campPage-trap-armedItem-skin-description {
@@ -266,7 +267,7 @@ url-prefix("http://www.mousehuntgame.com") {
         color: var(--text-normal);
     }
 
-    .campPage-trap-armedItem-image {
+    .trapSelectorView__armedItemImage {
         border-color: var(--background-border);
     }
 
@@ -279,35 +280,76 @@ url-prefix("http://www.mousehuntgame.com") {
         2px 2px 8px var(--background-accent);
     }
 
-    .campPage-trap-statsContainer {
+    .trapSelectorView__activeCodexContainer {
+        color: var(--text-normal);
+        background-color: var(--background-primary);
+        border-color: var(--background-border);
+        box-shadow: none;
+    }
+
+    .trapSelectorView__codexFilterButton.active {
+        background-color: var(--background-accent)
+    }
+
+    .trapSelectorView__codexFilterButton {
+        color: var(--text-normal);
+        background-color: var(--background-secondary)
+    }
+
+    .trapSelectorView__innerBlock {
+        background-color: var(--background-secondary);
+        border-color: var(--background-border);
+        color: var(--text-muted);
+    }
+
+    .trapSelectorView__tooltip::before {
+        border-color: var(--background-border) transparent transparent transparent;
+    }
+
+    .trapSelectorView__tooltip {
+        background-color: var(--background-primary);
+        box-shadow: none;
+        border-color: var(--background-border)
+    }
+
+    .trapSelectorView__tooltip::after {
+        color: var(--text-normal);
+        border-color: var(--background-primary) transparent transparent transparent;
+    }
+
+    .trapSelectorView__tooltipContent {
+        color: var(--text-normal);
+    }
+
+    .trapSelectorView__trapStatSummaryContainer {
         box-shadow: none;
         background-color: var(--background-accent);
     }
 
-    .campPage-trap-itemStats {
+    .trapSelectorView__trapStatSummary {
         background-color: var(--background-secondary);
         border-color: var(--background-border);
         box-shadow: none;
     }
 
-    .campPage-trap-trapStat .value {
+    .trapSelectorView__trapStatSummary .value {
         background-color: var(--background-primary);
         border-color: var(--background-border);
         color: var(--text-normal);
     }
 
-    .campPage-trap-trapStat .math {
+    .trapSelectorView__trapStatSummary .math {
         background-color: var(--background-floating);
         color: var(--text-normal);
         border-color: var(--background-border);
         box-shadow: none;
     }
 
-    .campPage-trap-trapStat .math .arrow {
+    .trapSelectorView__trapStatSummary .math .arrow {
         border-color: var(--background-border) transparent transparent transparent;
     }
 
-    .campPage-trap-trapStat .math .arrow span {
+    .trapSelectorView__trapStatSummary .math .arrow span {
         border-color: var(--background-floating) transparent transparent transparent;
     }
 
@@ -394,6 +436,17 @@ url-prefix("http://www.mousehuntgame.com") {
     }
 
     /*** Trap Selector ***/
+    .trapSelectorView__outerBlock {
+        background-color: var(--background-primary);
+        border-color: var(--background-border);
+        box-shadow: none;
+    }
+
+    .trapSelectorView__itemBrowserHeader,
+    .trapSelectorView__itemBrowserContainer {
+      color: var(--text-normal);
+    }
+
     .campPage-trap-itemBrowser-favorite-item-image-quantity {
         color: var(--text-contrast);
     }
@@ -408,6 +461,12 @@ url-prefix("http://www.mousehuntgame.com") {
 
     .armed .campPage-trap-itemBrowser-item-armButton {
         color: var(--hg-default-white);
+    }
+
+    .campPage-trap-itemBrowser-item-image::after,
+    .campPage-trap-itemBrowser-armed-item-image-frame {
+        border-color: var(--background-border);
+        box-shadow: none;
     }
 
     .campPage-trap-itemBrowser-armed-item-content .campPage-trap-itemBrowser-item-disarmButton {
@@ -1107,8 +1166,21 @@ url-prefix("http://www.mousehuntgame.com") {
 
     /*** Settings ***/
     .personal_info,
-    .game_settings {
+    .game_settings,
+    .account_settings {
         color: var(--text-normal);
+    }
+
+    .accountVerificationRewardsView__step.can_claim {
+        background-color: #867100;
+    }
+
+    .accountVerificationRewardsView__step.pending {
+        background-color: #017075;
+    }
+
+    .accountVerificationRewardsView__step.claimed {
+        background-color: #005c00;
     }
 
     /*** Inventory ***/
